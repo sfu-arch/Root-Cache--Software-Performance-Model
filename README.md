@@ -16,7 +16,7 @@ g++ write_file.cpp
 
 ### Bplus Tree Functionality :
 
-Used to create the B-Tree and perform the search functionality with different search workloads.
+Used to create the B+Tree and perform the search functionality with different search workloads.
 It is run as follows:
 
 ```
