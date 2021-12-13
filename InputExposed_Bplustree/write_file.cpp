@@ -9,8 +9,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cxxopts::Options options("pi_calculation",
-                           "Calculate pi using serial and parallel execution");
+    cxxopts::Options options("Input Generator",
+                           "Generating different kinds of inputs for B-Tree");
   options.add_options(
       "custom",
       {
