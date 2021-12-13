@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include "cxxopts.h"
 
+#define DEFAULT_RANGE "1000000"
 #define DEFAULT_DEGREE "2"
 #define DEFAULT_THREAD_COUNT "4"
 
@@ -36,7 +37,7 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
     // mtx1.unlock();
   }
   // mtx1.lock();
-  cout << "Thread ID: "<<src_count<<endl;
+  // cout << "Thread ID: "<<src_count<<endl;
   // R1->displayRootCache();
   // mtx1.unlock();
 }
@@ -68,48 +69,57 @@ cxxopts::Options options(
   options.add_options(
       "custom",
       {
+          {"nRange", "N",
+           cxxopts::value<uint>()->default_value(DEFAULT_DEGREE)},
           {"degree", "Degree of B-Tree",
            cxxopts::value<uint>()->default_value(DEFAULT_DEGREE)},
            {"cacheSize", "Cache Size",
            cxxopts::value<uint>()->default_value(DEFAULT_THREAD_COUNT)},
-          {"inputFile", "Input insert elements",
+          {"insertFile", "Input insert elements",
            cxxopts::value<std::string>()->default_value(
-               "writ.txt")},
+               "written.txt")},
+          {"searchFile", "Input search elements",
+           cxxopts::value<std::string>()->default_value(
+               "search.txt")},
       });
 
   auto cl_options = options.parse(argc, argv);
+  uint range = cl_options["nRange"].as<uint>();
   uint deg = cl_options["degree"].as<uint>();
   uint cache_size = cl_options["cacheSize"].as<uint>();
-  std::string input_file_path = cl_options["inputFile"].as<std::string>();
+  std::string insert_file_path = cl_options["insertFile"].as<std::string>();
+  std::string search_file_path = cl_options["searchFile"].as<std::string>();
   std::cout << std::fixed;
+  std::cout << "N : " << range << "\n";
   std::cout << "BTree Degree : " << deg << "\n";
-  std::cout << "Number of Threads : " << cache_size << "\n";
-  std::cout << "Input File Name : " << input_file_path << "\n";
+  std::cout << "Cache Size : " << cache_size << "\n";
+  std::cout << "Insert File Name : " << insert_file_path << "\n";
+  std::cout << "Search File Name : " << search_file_path << "\n";
 
   BTree t(deg);
   // RootCache(1024);
   RootCache R1(cache_size);
   string line;
-  ifstream myfile(input_file_path);
+  ifstream myfile(insert_file_path);
   int numb;
-  for(int i = 1; i <= 1000000; i++){
-    // if (myfile.is_open())
-    // {
-    //   while (getline(myfile, line, ' '))
-    //   {
-    //     numb = std::stoi(line);
-    //     t.insert(numb);
-    //   }
-    //   myfile.close();
-    // }
-      t.insert(i);
+  for(int i = 0; i < range; i++){
+    if (myfile.is_open())
+    {
+      while (getline(myfile, line, ' '))
+      {
+        numb = std::stoi(line);
+        t.insert(numb);
+      }
+      myfile.close();
+    }
+      // t.insert(i);
   }
 
 
 
 src_count = 0;
 
-std::thread th[4];
+// std::thread th[4];
 
 //division of the root amongst the threads 
 
@@ -122,17 +132,20 @@ std::thread th[4];
 
 // for(int j=0;j<4;j++)
 // {
-  srand(time(NULL));
-int n = 1000000;
-for(int i = 0; i < 1000000; i++){
-  int temp = rand()%n +1;
-  // cout<<temp<<endl;
-  TreeNode* res = t.search(temp, &R1);
-  if(res){
-    src_count.fetch_add(1);
-  }
-}
-
+//   srand(time(NULL));
+// int n = 1000000;
+// for(int i = 0; i < 1000000; i++){
+//   int temp = rand()%n +1;
+//   // cout<<temp<<endl;
+//   TreeNode* res = t.search(temp, &R1);
+//   if(res){
+//     src_count.fetch_add(1);
+//   }
+// }
+// for(int i=1;i<=1000000;i++)
+// {
+// t.search(i, &R1);
+// }
 // n = 500000;
 
 // for(int i = 0; i < 100000; i++){
@@ -143,17 +156,26 @@ for(int i = 0; i < 1000000; i++){
 //     src_count.fetch_add(1);
 //   }
 // }
-// th[0]=std::thread(search_helper, t, &R1[0], &src_count, 1, 1000000, 0);
-  // th[0]=std::thread(search_helper, t, &R1[0], 1, 100000, 0);
-  // th[1]=std::thread(search_helper, t, &R1[1], 100001, 200000, 1);
-  // th[2]=std::thread(search_helper, t, &R1[2], 900001, 925000, 2);
-  // th[3]=std::thread(search_helper, t, &R1[3], 925001, 1000000, 3);
-  // th[0]=std::thread(search_helper, t, &R1, 1, 1000000, 0);
-  // th[1]=std::thread(search_helper, t, &R1[1], 250001, 500000, 1);
-  // th[2]=std::thread(search_helper, t, &R1[2], 500001, 750000, 2);
-  // th[3]=std::thread(search_helper, t, &R1[3], 750001, 1000000, 3);
+//
 
 // }
+string line1;
+ifstream myfile1(search_file_path);
+int numb1;
+int arr2[range];
+for(int i=0;i<range;i++)
+{
+  if (myfile1.is_open())
+    {
+      while (getline(myfile1, line1, ' '))
+      {
+        numb1 = std::stoi(line1);
+        search_helper(t, &R1, numb1, numb1, 0);
+      }
+      myfile1.close();
+    }
+}
+// search_helper(t, &R1, 1000000, 1000000, 0);
 
 
 
