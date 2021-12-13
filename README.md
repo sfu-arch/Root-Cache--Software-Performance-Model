@@ -11,8 +11,12 @@ It is run as follows:
 ```
 g++ write_file.cpp
 
-./a.out
+./a.out --nRange <n> --type <1/2>
 ```
+
+Type 1: Serial Input 1-n are generated and written to the text file.
+
+Type 2: Random numbers between 1-n are generated and written to the text file.
 
 ### Bplus Tree Functionality :
 
