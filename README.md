@@ -41,7 +41,7 @@ Used to create the B+Tree and perform the search functionality with different se
 It is run as follows:
 
 ```
-g++ -pthread main.cpp
+g++ main.cpp
 
-./a.out --degree <num> --cacheSize <cache_size> --inputFile <path_to_file>
+./a.out --nRange <N> --degree <num_degree> --cacheSize <cache_entries> --insertFile <path_to_file> --searchFile <path_to_file>    
 ```
