@@ -26,12 +26,16 @@ It is run as follows:
 ```
 g++ search_file.cpp
 
-./a.out --nRange <n> --type <1/2>
+./a.out --nRange <n> --type <1/2/3/4> --srange <end_first_part> --erange <start_second_part> --randomness <percentage_of_randomness>
 ```
 
 Type 1: Serial Input 1-n are generated and written to the text file.
 
 Type 2: Random numbers between 1-n are generated and written to the text file.
+
+Type 3: Utilises the `srange` and `erange` parameters, to set the end_range of search for the first part of the search. The skewed search starts from erange.
+
+Type 4: Utilises the `randomness` parameter, to set the percentage of random numbers to search out of the total number of keys to search.
 
 These then aid in searching the B-Tree.
 
