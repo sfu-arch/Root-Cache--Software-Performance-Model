@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <time.h>
-#include "../cxxopts.h"
+#include "cxxopts.h"
 
 # define DEFAULT_RANGE "1000000"
 #define DEFAULT_TYPE "1"
