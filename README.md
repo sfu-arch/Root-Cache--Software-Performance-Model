@@ -35,7 +35,7 @@ Type 2: Random numbers between 1-n are generated and written to the text file.
 
 Type 3: Utilises the `srange` and `erange` parameters, to set the end_range of search for the first part of the search. The skewed search starts from erange.
 
-Type 4: Utilises the `randomness` parameter, to set the percentage of random numbers to search out of the total number of keys to search.
+Type 4: Utilises the `randomness` to set the percentage of random numbers to search out of the total number of keys to search, `srange` and `erange` parameters, to set the end_range of search for the first part of the search parameter. Sequential Search till srange then random till 30% of n, then start sequential from erange.
 
 These then aid in searching the B-Tree.
 
