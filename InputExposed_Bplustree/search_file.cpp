@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
         int i1;
         int i2;
          int k2;
+         int k3;
          double rand_per = (r * n / 100);
   srand(time(NULL));
   ofstream myfile;
@@ -103,15 +104,20 @@ break;
         
         //rand_per has number of random numbers to generate
         
-        for (i2 = 1; i2 < (n - rand_per); i2++)
+        for (i2 = 1; i2 <= range1; i2++)
         {
             myfile << i2 << " ";
         }
-       
-        for (k2 = i2; k2 <= n; k2++)
+       //random percentage : sequential till  srange and then random then start againn from erange
+        for (k2 = (range1+1); k2 < range2; k2++)
         {
             iSecret = rand() % n + 1;
             myfile << iSecret << " ";
+        }
+
+        for(k3=range2; k3<= n; k3++)
+        {
+            myfile << k3 << " ";
         }
         break;
 }
