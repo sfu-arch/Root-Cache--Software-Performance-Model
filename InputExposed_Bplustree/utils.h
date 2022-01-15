@@ -6,6 +6,7 @@
 #include <atomic>
 using namespace std;
 int levels = 0;
+int arr_levels[120];
 // std::atomic<uint> flg;
 // flg=0;
 
@@ -32,6 +33,7 @@ class BTree {
 
   TreeNode *search(int k, RootCache* R1) {
     TreeNode* res1;
+    int iter_done=0;
     // mtx2.lock();
     TreeNode* ptr= (TreeNode *)R1->Search1(k);
     int flg=0;
@@ -40,7 +42,7 @@ class BTree {
       // cout<<"not root\n";
       insert_flag=1;
       
-    res1= ptr->search(k, R1, flg, res2);
+    res1= ptr->search(k, R1, flg, res2, iter_done);
     // return ptr->search(k, R1);
 
   }
@@ -48,13 +50,14 @@ class BTree {
     {
       insert_flag=0;
     // return (root == NULL) ? NULL : root->search(k, R1);
-    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2);
+    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2, iter_done);
   }
   // mtx2.unlock();
   return res1;
   }
 
   void insert(int k);
+  void disp(RootCache* R1);
 };
 
 TreeNode::TreeNode(int t1, bool leaf1) {
@@ -83,9 +86,10 @@ void TreeNode::traverse() {
 }
 
 
-TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2) {
+TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int iter_levels) {
 
   levels++;
+  iter_levels++;
   int i = 0;
   // flg=0;
   // TreeNode* res2;
@@ -106,9 +110,11 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2) {
     if(flg==1)
     {
       flg=0;
+      arr_levels[iter_levels-1]++;
       return res2;
     }
     else{
+      arr_levels[iter_levels-1]++;
       return NULL;
     }
     // res2=NULL;
@@ -116,9 +122,9 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2) {
     if(insert_flag==0 && i!=n && leaf!=true && keys[i]!=k)
     {
       if(keys[i-1]!=0)
-    R1->insert1(keys[i-1], keys[i], (uint64_t)this);
+    R1->insert1(keys[i-1], keys[i], iter_levels, (uint64_t)this);
     else //added
-    R1->insert1(k, keys[i], (uint64_t)this);//added
+    R1->insert1(k, keys[i], iter_levels, (uint64_t)this);//added
     }
   insert_flag=0;
   // mtx3.unlock();
@@ -126,7 +132,12 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2) {
   // {
   //   return res2;
   // }
-  return C[i]->search(k, R1, flg, res2);
+  return C[i]->search(k, R1, flg, res2, iter_levels);
+}
+
+void BTree::disp(RootCache* R1)
+{
+  R1->displayRootCache();
 }
 
 void BTree::insert(int k) {
@@ -202,3 +213,4 @@ void TreeNode::splitChild(int i, TreeNode *y) {
   keys[i] = y->keys[t - 1];
   n = n + 1;
 }
+

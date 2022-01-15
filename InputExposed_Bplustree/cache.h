@@ -17,13 +17,14 @@ class RootCacheEntry
   uint64_t range_address;
   int index_tag;
   long range_size;
+  int iterated_levels;
 
 
   public:
 
   int utility_counter;
   uint64_t search_Range(int key, int* rng_sz, uint64_t res, RootCacheEntry searchPoint);
-  void insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries);
+  void insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries, int iterated_lvs);
   void displayEntry(RootCacheEntry* cursor);
   void flush();
 };
@@ -41,20 +42,21 @@ uint64_t RootCacheEntry::search_Range(int key, int* rng_sz, uint64_t res, RootCa
   return res;
 }
 
-void RootCacheEntry::insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries)
+void RootCacheEntry::insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries, int iterated_lvs)
 {
   entrypoint->start_range_value=start;
   entrypoint->end_range_value=end;
   entrypoint->range_address=start_address;
   entrypoint->range_size = end - start;
   entrypoint->utility_counter=number_queries;
+  entrypoint->iterated_levels=iterated_lvs;
 
 
 
 }
 
 void RootCacheEntry::displayEntry(RootCacheEntry* cursor){
-    cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->utility_counter<<endl;
+    cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->utility_counter<<", "<< cursor->iterated_levels<<endl;
 }
 
 class RootCache: public RootCacheEntry
@@ -107,14 +109,14 @@ public:
   void displayRootCache(){
     cout<< "Root Cache Snapshot\n";
     cout<< "No. of Entries Filled: "<< occupied << endl;
-    cout<< "Start, "<<"End, "<<"Range Address, "<<"Range Size, "<<"Utility Count\n";
+    cout<< "Start, "<<"End, "<<"Range Address, "<<"Range Size, "<<"Utility Count"<<"Level Present at\n";
 
     for(int i = 0; i < occupied; i++)
       displayEntry(&root_cache[i]);
 
   }
 
-  void insert1(int start, int end, uint64_t start_address)
+  void insert1(int start, int end, int iter_levels, uint64_t start_address)
   {
     int smallest=0;
     // mtx.lock();
@@ -130,14 +132,14 @@ public:
             // break;
           }
         }
-        insertRange(start, end, start_address, &root_cache[smallest], number_queries);
+        insertRange(start, end, start_address, &root_cache[smallest], number_queries, iter_levels);
       }
       else
       {
-      insertRange(start, end, start_address, &root_cache[occupied], number_queries);
+      insertRange(start, end, start_address, &root_cache[occupied], number_queries, iter_levels);
       occupied++;
       }
-      // displayRootCache(occupied);
+      // displayRootCache();
       // cout<<"\nGoing to UNLOCCKKKKKKKK\n";
       // mtx.unlock();
   }
@@ -172,7 +174,8 @@ class TreeNode {
   void splitChild(int i, TreeNode *y);
   void traverse();
 
-  TreeNode *search(int k, RootCache* R1, int flg, TreeNode* res2);
+  TreeNode *search(int k, RootCache* R1, int flg, TreeNode* res2, int iter_levels);
+
 
   friend class BTree;
 };
