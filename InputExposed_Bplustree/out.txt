@@ -1,0 +1,30 @@
+Search from 1 to 10000000
+Option Chosen : Random Search.
+Done 
+Insert from 1 to 10000000
+Option Chosen : Serial Input.
+Done 
+N : 10000000
+BTree Degree : 5
+Cache Size : 1024
+Insert File Name : written.txt
+Search File Name : search.txt
+Constructor
+
+10000000search count
+9680931 Hit Count
+10000000 number_queries
+96.809310 % Hit Rate
+82284627 Levels iterated over
+Level, Frequency
+1, 0
+2, 698
+3, 3052
+4, 15119
+5, 76536
+6, 367230
+7, 1585554
+8, 4095317
+9, 2798815
+10, 1057679
+11, 0

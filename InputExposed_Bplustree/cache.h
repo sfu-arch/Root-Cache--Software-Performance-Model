@@ -26,6 +26,7 @@ class RootCacheEntry
   uint64_t search_Range(int key, int* rng_sz, uint64_t res, RootCacheEntry searchPoint);
   void insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries, int iterated_lvs);
   void displayEntry(RootCacheEntry* cursor);
+  int getLevels(RootCacheEntry searchpoint, int key);
   void flush();
 };
 
@@ -55,6 +56,12 @@ void RootCacheEntry::insertRange(int start, int end, uint64_t start_address, Roo
 
 }
 
+int RootCacheEntry::getLevels(RootCacheEntry searchpoint, int key)
+{
+  return searchpoint.iterated_levels;
+}
+
+
 void RootCacheEntry::displayEntry(RootCacheEntry* cursor){
     cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->utility_counter<<", "<< cursor->iterated_levels<<endl;
 }
@@ -83,7 +90,7 @@ public:
     return size_root_cache;
   }
 
-  uint64_t Search1(int key){
+uint64_t Search1(int key, int* iterLevels){
     int rng_sz=INT_MAX;
     uint64_t res=0;
     number_queries++;
@@ -98,6 +105,7 @@ public:
       }
     }
     if(res){
+      *iterLevels= getLevels(root_cache[i], key);
       hit_count++;
       root_cache[ref].utility_counter=number_queries;
     }
@@ -105,6 +113,7 @@ public:
 
     return res;
   }
+
 
   void displayRootCache(){
     cout<< "Root Cache Snapshot\n";

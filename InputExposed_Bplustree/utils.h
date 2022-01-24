@@ -34,15 +34,16 @@ class BTree {
   TreeNode *search(int k, RootCache* R1) {
     TreeNode* res1;
     int iter_done=0;
+    int iterLevels=0;
     // mtx2.lock();
-    TreeNode* ptr= (TreeNode *)R1->Search1(k);
+    TreeNode* ptr= (TreeNode *)R1->Search1(k, &iterLevels);
     int flg=0;
     TreeNode* res2 = NULL;
     if(ptr!=NULL){
       // cout<<"not root\n";
       insert_flag=1;
       
-    res1= ptr->search(k, R1, flg, res2, iter_done);
+    res1= ptr->search(k, R1, flg, res2, iterLevels);
     // return ptr->search(k, R1);
 
   }
@@ -50,11 +51,12 @@ class BTree {
     {
       insert_flag=0;
     // return (root == NULL) ? NULL : root->search(k, R1);
-    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2, iter_done);
+    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2, 0);
   }
   // mtx2.unlock();
   return res1;
   }
+
 
   void insert(int k);
   void disp(RootCache* R1);

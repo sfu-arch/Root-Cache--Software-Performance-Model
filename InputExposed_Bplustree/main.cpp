@@ -25,6 +25,7 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
 {
   int insert_flag=0;
   TreeNode* resres;
+  // cout<<endl<<src_count<<"search count"<<endl;
   for(int j=start_ind;j<=end_ind;j++)
   {
     insert_flag=0;
@@ -35,7 +36,16 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
       src_count.fetch_add(1);
     }
     // mtx1.unlock();
+    // if(j%10000000 == 0){
+    //   cout<<"Search No. "<<j<<endl;
+    //   cout<<"--------------------------------------------------------------------"<<endl;
+    //   cout<<endl;
+    //   t.disp(R1);
+    //   cout<<"--------------------------------------------------------------------"<<endl;
+    //   cout<<endl;
+    // }
   }
+  
   // mtx1.lock();
   // cout << "Thread ID: "<<src_count<<endl;
   // R1->displayRootCache();
@@ -159,10 +169,10 @@ src_count = 0;
 //
 
 // }
+// cout<<endl<<src_count<<"search count"<<endl;
 string line1;
 ifstream myfile1(search_file_path);
 int numb1;
-int arr2[range];
 for(int i=0;i<range;i++)
 {
   if (myfile1.is_open())
@@ -188,4 +198,8 @@ cout<<endl<<src_count<<"search count"<<endl;
 
   cout<<R1.getHitRate()<<" % Hit Rate"<<endl;
 cout<<levels<<" Levels iterated over"<<endl;
+cout<<"Level, Frequency"<<endl;
+for(int i = 0; i < 11; i++){
+  cout << i+1<<", "<<arr_levels[i]<<endl;
+}
 }
