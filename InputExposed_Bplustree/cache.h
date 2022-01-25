@@ -23,10 +23,12 @@ class RootCacheEntry
   public:
 
   int utility_counter;
+  int getEntryLevel(RootCacheEntry* cursor);
   uint64_t search_Range(int key, int* rng_sz, uint64_t res, RootCacheEntry searchPoint);
   void insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries, int iterated_lvs);
   void displayEntry(RootCacheEntry* cursor);
   int getLevels(RootCacheEntry searchpoint, int key);
+  long getLevelUtility(RootCacheEntry* cursor);
   void flush();
 };
 
@@ -66,6 +68,14 @@ void RootCacheEntry::displayEntry(RootCacheEntry* cursor){
     cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->utility_counter<<", "<< cursor->iterated_levels<<endl;
 }
 
+int RootCacheEntry::getEntryLevel(RootCacheEntry* cursor){
+  return cursor->iterated_levels;
+}
+
+long RootCacheEntry::getLevelUtility(RootCacheEntry* cursor){
+  return cursor->utility_counter;
+}
+
 class RootCache: public RootCacheEntry
 {
   RootCacheEntry* root_cache;
@@ -90,7 +100,7 @@ public:
     return size_root_cache;
   }
 
-uint64_t Search1(int key, int* iterLevels){
+  uint64_t Search1(int key, int* iterLevels){
     int rng_sz=INT_MAX;
     uint64_t res=0;
     number_queries++;
@@ -123,6 +133,45 @@ uint64_t Search1(int key, int* iterLevels){
     for(int i = 0; i < occupied; i++)
       displayEntry(&root_cache[i]);
 
+  }
+
+  void displayCacheDist(){
+    int dist_ref[120];
+    int temp = 0;
+    long max = 0;
+    int max_ind = 0;
+    for(int i = 0; i < 120; i++){
+      dist_ref[i] = 0;
+    }
+    for(int i=0; i < occupied; i++){
+      temp = getEntryLevel(&root_cache[i]);
+      dist_ref[temp]++;
+    }
+    for(int i = 0; i < 120; i++){
+      if(dist_ref[i]!=0){
+        cout<<"Level "<<i<<": "<<dist_ref[i]<<endl;
+      }
+    }
+    for(int i = 0; i < occupied; i++){
+      temp = getLevelUtility(&root_cache[i]);
+      if(temp > max){
+        max = temp;
+        max_ind = i;
+      }
+    }
+    int min = max;
+    int min_ind = 0;
+    for(int i = 0; i < occupied; i++){
+      temp = getLevelUtility(&root_cache[i]);
+      if(temp < min){
+        min = temp;
+        min_ind = i;
+      }
+    }
+    cout<<"Maximum utilised level in the cache: "<<getEntryLevel(&root_cache[max_ind])<<endl;
+    cout<<"Minimum utilised level in the cache: "<<getEntryLevel(&root_cache[min_ind])<<endl;
+
+    cout<<"---------------------------------------------------------------"<<endl;
   }
 
   void insert1(int start, int end, int iter_levels, uint64_t start_address)

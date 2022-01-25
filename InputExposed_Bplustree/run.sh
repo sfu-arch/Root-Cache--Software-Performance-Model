@@ -1,5 +1,5 @@
 g++ search_file.cpp -o search
-./search --nRange 1000000 --type 1 
+./search --nRange 1000000 --type 2 
 g++ write_file.cpp -o write 
 ./write --nRange 1000000 --type 1
 

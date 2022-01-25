@@ -20,6 +20,7 @@ using namespace std;
 
 std::mutex mtx1;
 std::atomic<int> src_count;
+std::atomic<int>total_count;
 //
 void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int thread_id)
 {
@@ -35,15 +36,17 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
     {
       src_count.fetch_add(1);
     }
+    total_count.fetch_add(1);
     // mtx1.unlock();
-    // if(j%10000000 == 0){
-    //   cout<<"Search No. "<<j<<endl;
-    //   cout<<"--------------------------------------------------------------------"<<endl;
-    //   cout<<endl;
-    //   t.disp(R1);
-    //   cout<<"--------------------------------------------------------------------"<<endl;
-    //   cout<<endl;
-    // }
+    if(total_count%100000 == 0){
+      // cout<<"Search No. "<<j<<endl;
+      // cout<<"--------------------------------------------------------------------"<<endl;
+      // cout<<endl;
+      // t.disp(R1);
+      // cout<<"--------------------------------------------------------------------"<<endl;
+      // cout<<endl;
+      R1->displayCacheDist();
+    }
   }
   
   // mtx1.lock();
@@ -107,8 +110,7 @@ cxxopts::Options options(
   std::cout << "Search File Name : " << search_file_path << "\n";
 
   BTree t(deg);
-  // RootCache(1024);
-  RootCache R1(cache_size);
+RootCache R1(cache_size);
   string line;
   ifstream myfile(insert_file_path);
   int numb;
@@ -128,7 +130,7 @@ cxxopts::Options options(
 
 
 src_count = 0;
-
+total_count = 0;
 // std::thread th[4];
 
 //division of the root amongst the threads 
