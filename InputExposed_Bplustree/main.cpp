@@ -38,7 +38,7 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
     }
     total_count.fetch_add(1);
     // mtx1.unlock();
-    if(total_count%100000 == 0){
+    if(total_count%1000000 == 0){
       // cout<<"Search No. "<<j<<endl;
       // cout<<"--------------------------------------------------------------------"<<endl;
       // cout<<endl;

@@ -1,0 +1,144 @@
+Search from 1 to 10000000
+Option Chosen : Randomised Search.
+Done 
+Insert from 1 to 10000000
+Option Chosen : Serial Input.
+Done 
+N : 10000000
+BTree Degree : 5
+Cache Size : 1024
+Insert File Name : written.txt
+Search File Name : search.txt
+Constructor
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 1: 5
+Level 2: 181
+Level 3: 180
+Level 4: 160
+Level 5: 168
+Level 6: 149
+Level 7: 114
+Level 8: 53
+Level 9: 14
+Maximum utilised level in the cache: 2
+Minimum utilised level in the cache: 6
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 173
+Level 3: 188
+Level 4: 165
+Level 5: 164
+Level 6: 144
+Level 7: 120
+Level 8: 51
+Level 9: 15
+Maximum utilised level in the cache: 3
+Minimum utilised level in the cache: 3
+---------------------------------------------------------------
+Level 1: 6
+Level 2: 185
+Level 3: 165
+Level 4: 168
+Level 5: 159
+Level 6: 151
+Level 7: 113
+Level 8: 54
+Level 9: 23
+Maximum utilised level in the cache: 6
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 186
+Level 3: 172
+Level 4: 160
+Level 5: 168
+Level 6: 149
+Level 7: 110
+Level 8: 59
+Level 9: 16
+Maximum utilised level in the cache: 2
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 195
+Level 3: 176
+Level 4: 166
+Level 5: 171
+Level 6: 145
+Level 7: 106
+Level 8: 49
+Level 9: 12
+Maximum utilised level in the cache: 2
+Minimum utilised level in the cache: 6
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 179
+Level 3: 177
+Level 4: 159
+Level 5: 163
+Level 6: 156
+Level 7: 121
+Level 8: 49
+Level 9: 16
+Maximum utilised level in the cache: 2
+Minimum utilised level in the cache: 5
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 190
+Level 3: 184
+Level 4: 161
+Level 5: 161
+Level 6: 147
+Level 7: 114
+Level 8: 53
+Level 9: 10
+Maximum utilised level in the cache: 5
+Minimum utilised level in the cache: 4
+---------------------------------------------------------------
+Level 1: 4
+Level 2: 176
+Level 3: 178
+Level 4: 158
+Level 5: 163
+Level 6: 146
+Level 7: 122
+Level 8: 60
+Level 9: 17
+Maximum utilised level in the cache: 3
+Minimum utilised level in the cache: 3
+---------------------------------------------------------------
+Level 2: 606
+Level 3: 270
+Level 4: 74
+Level 6: 7
+Level 7: 14
+Level 8: 22
+Level 9: 31
+Maximum utilised level in the cache: 9
+Minimum utilised level in the cache: 4
+---------------------------------------------------------------
+
+10000000search count
+9744153 Hit Count
+10000000 number_queries
+97.441530 % Hit Rate
+70829112 Levels iterated over
+Level, Frequency
+1, 0
+2, 1280592
+3, 514533
+4, 165670
+5, 101699
+6, 304338
+7, 1270996
+8, 3277145
+9, 2237276
+10, 847751
+11, 0

@@ -1,0 +1,113 @@
+Search from 1 to 10000000
+Option Chosen : Serial Search.
+Done 
+Insert from 1 to 10000000
+Option Chosen : Serial Input.
+Done 
+N : 10000000
+BTree Degree : 5
+Cache Size : 1024
+Insert File Name : written.txt
+Search File Name : search.txt
+Constructor
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 609
+Level 3: 278
+Level 4: 87
+Level 5: 22
+Level 6: 12
+Level 7: 16
+Maximum utilised level in the cache: 3
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 610
+Level 3: 280
+Level 4: 92
+Level 5: 26
+Level 6: 16
+Maximum utilised level in the cache: 4
+Minimum utilised level in the cache: 2
+---------------------------------------------------------------
+Level 2: 606
+Level 3: 270
+Level 4: 74
+Level 6: 7
+Level 7: 14
+Level 8: 22
+Level 9: 31
+Maximum utilised level in the cache: 9
+Minimum utilised level in the cache: 4
+---------------------------------------------------------------
+
+10000000search count
+9999316 Hit Count
+10000000 number_queries
+99.993160 % Hit Rate
+25000928 Levels iterated over
+Level, Frequency
+1, 0
+2, 6400004
+3, 2560000
+4, 768000
+5, 204800
+6, 51200
+7, 12288
+8, 2448
+9, 480
+10, 780
+11, 0
