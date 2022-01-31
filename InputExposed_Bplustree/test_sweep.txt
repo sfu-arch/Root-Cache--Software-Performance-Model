@@ -1,0 +1,51 @@
+Search from 1 to 32
+Option Chosen : Random Search.
+Done 
+Insert from 1 to 32
+Option Chosen : Serial Input.
+Done 
+N : 32
+BTree Degree : 3
+Cache Size : 1024
+Insert File Name : written.txt
+Search File Name : search.txt
+Constructor
+Level 0
+Utility
+18
+Level 1
+Utility
+10
+Level 2
+Utility
+5
+Level 2
+Utility
+2
+Level 1
+Utility
+12
+Level 2
+Utility
+4
+Level 2
+Utility
+4
+
+32search count
+24 Hit Count
+32 number_queries
+75.000000 % Hit Rate
+82 Levels iterated over
+Level, Frequency
+1, 0
+2, 14
+3, 18
+4, 0
+5, 0
+6, 0
+7, 0
+8, 0
+9, 0
+10, 0
+11, 0

@@ -38,15 +38,15 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
     }
     total_count.fetch_add(1);
     // mtx1.unlock();
-    if(total_count%1000000 == 0){
-      // cout<<"Search No. "<<j<<endl;
-      // cout<<"--------------------------------------------------------------------"<<endl;
-      // cout<<endl;
-      // t.disp(R1);
-      // cout<<"--------------------------------------------------------------------"<<endl;
-      // cout<<endl;
-      R1->displayCacheDist();
-    }
+    // if(total_count%1000000 == 0){
+    //   // cout<<"Search No. "<<j<<endl;
+    //   // cout<<"--------------------------------------------------------------------"<<endl;
+    //   // cout<<endl;
+    //   // t.disp(R1);
+    //   // cout<<"--------------------------------------------------------------------"<<endl;
+    //   // cout<<endl;
+    //   R1->displayCacheDist();
+    // }
   }
   
   // mtx1.lock();
@@ -196,7 +196,7 @@ for(int i=0;i<range;i++)
 //   th[j].join();
 // }
 
-// t.levelTraverse();
+t.levelTraverse();
 
 cout<<endl<<src_count<<"search count"<<endl;
 

@@ -15,32 +15,44 @@ Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274151
+Variance: 5.171762
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 3 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274151
+Variance: 5.171764
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274152
+Variance: 5.171766
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274150
+Variance: 5.171759
 ---------------------------------------------------------------
 Level 2: 609
 Level 3: 278
@@ -48,40 +60,55 @@ Level 4: 87
 Level 5: 22
 Level 6: 12
 Level 7: 16
-Maximum utilised level in the cache: 3
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 3 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274151
+Variance: 5.171763
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274151
+Variance: 5.171764
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 6 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274152
+Variance: 5.171766
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 3 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274153
+Variance: 5.171769
 ---------------------------------------------------------------
 Level 2: 610
 Level 3: 280
 Level 4: 92
 Level 5: 26
 Level 6: 16
-Maximum utilised level in the cache: 4
-Minimum utilised level in the cache: 2
+Maximum utilised level in the cache: 4 utility : 24
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 5.007812
+Standard Deviation: 2.274152
+Variance: 5.171766
 ---------------------------------------------------------------
 Level 2: 606
 Level 3: 270
@@ -90,8 +117,11 @@ Level 6: 7
 Level 7: 14
 Level 8: 22
 Level 9: 31
-Maximum utilised level in the cache: 9
-Minimum utilised level in the cache: 4
+Maximum utilised level in the cache: 6 utility : 16
+Minimum utilised level in the cache: 2 utility : 4
+Mean: 4.972656
+Standard Deviation: 2.144953
+Variance: 4.600825
 ---------------------------------------------------------------
 
 10000000search count

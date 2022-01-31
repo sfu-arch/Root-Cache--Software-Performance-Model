@@ -84,6 +84,7 @@ void TreeNode::levelIter(int level){
   cout << "Level "<< level<<endl;
   cout << "Utility"<<endl;
   cout<<node_util<<endl;
+  cout<<"occupancy: "<< n << endl;
   for(int i = 0; i < n; i++){
     if(leaf == false)
       C[i]->levelIter(level+1);

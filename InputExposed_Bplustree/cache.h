@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <climits>
 #include <mutex>
+#include <math.h>
 // #include "utils.h
 using namespace std;
 
@@ -23,6 +24,7 @@ class RootCacheEntry
   public:
 
   int utility_counter;
+  int used_counter;
   int getEntryLevel(RootCacheEntry* cursor);
   uint64_t search_Range(int key, int* rng_sz, uint64_t res, RootCacheEntry searchPoint);
   void insertRange(int start, int end, uint64_t start_address, RootCacheEntry* entrypoint, int number_queries, int iterated_lvs);
@@ -52,6 +54,7 @@ void RootCacheEntry::insertRange(int start, int end, uint64_t start_address, Roo
   entrypoint->range_address=start_address;
   entrypoint->range_size = end - start;
   entrypoint->utility_counter=number_queries;
+  entrypoint->used_counter=0;
   entrypoint->iterated_levels=iterated_lvs;
 
 
@@ -65,7 +68,7 @@ int RootCacheEntry::getLevels(RootCacheEntry searchpoint, int key)
 
 
 void RootCacheEntry::displayEntry(RootCacheEntry* cursor){
-    cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->utility_counter<<", "<< cursor->iterated_levels<<endl;
+    cout<< cursor->start_range_value << ", "<<cursor->end_range_value<< ", "<< cursor->range_address<< ", "<<cursor->range_size<<", "<<cursor->used_counter<<", "<< cursor->iterated_levels<<endl;
 }
 
 int RootCacheEntry::getEntryLevel(RootCacheEntry* cursor){
@@ -73,8 +76,10 @@ int RootCacheEntry::getEntryLevel(RootCacheEntry* cursor){
 }
 
 long RootCacheEntry::getLevelUtility(RootCacheEntry* cursor){
-  return cursor->utility_counter;
+  return cursor->used_counter;
 }
+
+
 
 class RootCache: public RootCacheEntry
 {
@@ -118,6 +123,7 @@ public:
       *iterLevels= getLevels(root_cache[i], key);
       hit_count++;
       root_cache[ref].utility_counter=number_queries;
+      root_cache[ref].used_counter++;
     }
     // cout<<"\n"<<hit_count<<" Hit Count\n";
 
@@ -161,15 +167,28 @@ public:
     }
     int min = max;
     int min_ind = 0;
+    float mean = 0;
     for(int i = 0; i < occupied; i++){
       temp = getLevelUtility(&root_cache[i]);
+      mean += temp;
       if(temp < min){
         min = temp;
         min_ind = i;
       }
     }
-    cout<<"Maximum utilised level in the cache: "<<getEntryLevel(&root_cache[max_ind])<<endl;
-    cout<<"Minimum utilised level in the cache: "<<getEntryLevel(&root_cache[min_ind])<<endl;
+    mean = mean / occupied;
+    float variance = 0;
+    for(int i = 0; i < occupied; i++){
+      variance += (getLevelUtility(&root_cache[i]) - mean) * (getLevelUtility(&root_cache[i]) - mean);
+    }
+    variance = variance / occupied;
+    float standard_dev = sqrt(variance);
+
+    cout<<"Maximum utilised level in the cache: "<<getEntryLevel(&root_cache[max_ind])<< " utility : "<< max <<endl;
+    cout<<"Minimum utilised level in the cache: "<<getEntryLevel(&root_cache[min_ind])<< " utility : "<< min << endl;
+    cout << "Mean: " << mean << endl;
+    cout << "Standard Deviation: "<<standard_dev<<endl;
+    cout << "Variance: "<< variance << endl;
 
     cout<<"---------------------------------------------------------------"<<endl;
   }
