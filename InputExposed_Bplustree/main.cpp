@@ -196,6 +196,8 @@ for(int i=0;i<range;i++)
 //   th[j].join();
 // }
 
+// t.levelTraverse();
+
 cout<<endl<<src_count<<"search count"<<endl;
 
   cout<<R1.getHitRate()<<" % Hit Rate"<<endl;

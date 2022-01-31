@@ -223,6 +223,7 @@ class TreeNode {
   TreeNode **C;
   int n;
   bool leaf;
+  int node_util;
 
    public:
    
@@ -231,6 +232,7 @@ class TreeNode {
   void insertNonFull(int k);
   void splitChild(int i, TreeNode *y);
   void traverse();
+  void levelIter(int lev);
 
   TreeNode *search(int k, RootCache* R1, int flg, TreeNode* res2, int iter_levels);
 

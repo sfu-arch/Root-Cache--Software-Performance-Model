@@ -31,6 +31,11 @@ class BTree {
       root->traverse();
   }
 
+  void levelTraverse(){
+    if(root != NULL)
+      root->levelIter(0);
+  }
+
   TreeNode *search(int k, RootCache* R1) {
     TreeNode* res1;
     int iter_done=0;
@@ -70,19 +75,41 @@ TreeNode::TreeNode(int t1, bool leaf1) {
   C = new TreeNode *[2 * t];
 
   n = 0;
+  node_util = 0;
+}
+
+int level = 0;
+
+void TreeNode::levelIter(int level){
+  cout << "Level "<< level<<endl;
+  cout << "Utility"<<endl;
+  cout<<node_util<<endl;
+  for(int i = 0; i < n; i++){
+    if(leaf == false)
+      C[i]->levelIter(level+1);
+  }
 }
 
 void TreeNode::traverse() {
+  
+  // cout << "Level "<<level<<endl;
+  // cout << node_util<< endl;
   int i;
   for (i = 0; i < n; i++) {
     if (leaf == false){
+      if(level == 11)
+        level = 0;
+      level++;
       C[i]->traverse();
     }
 
     cout << " " << keys[i];
   }
-
+  
   if (leaf == false){
+    if(level == 11)
+      level = 0;
+    level++;
     C[i]->traverse();
   }
 }
@@ -92,6 +119,7 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int it
 
   levels++;
   iter_levels++;
+  node_util++;
   int i = 0;
   // flg=0;
   // TreeNode* res2;
