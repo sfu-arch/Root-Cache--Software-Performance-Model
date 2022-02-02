@@ -1,5 +1,5 @@
 Search from 1 to 10000000
-Option Chosen : Randomised Search.
+Option Chosen : Random Search.
 Done 
 Insert from 1 to 10000000
 Option Chosen : Serial Input.
@@ -10,289 +10,311 @@ Cache Size : 1024
 Insert File Name : written.txt
 Search File Name : search.txt
 Constructor
-Level 2: 610
-Level 3: 280
-Level 4: 92
-Level 5: 26
-Level 6: 16
-Maximum utilised level in the cache: 4 utility : 24
-Minimum utilised level in the cache: 2 utility : 4
-Mean: 5.007812
-Standard Deviation: 2.274151
-Variance: 5.171762
----------------------------------------------------------------
-Level Utility
-64
-112
-352
-1350
-4620
-14960
-45760
-126720
-281600
-225280
-0
-0
---------------------------------------------------------------------
-Level 2: 610
-Level 3: 280
-Level 4: 92
-Level 5: 26
-Level 6: 16
-Maximum utilised level in the cache: 4 utility : 24
-Minimum utilised level in the cache: 3 utility : 4
-Mean: 5.007812
-Standard Deviation: 2.274151
-Variance: 5.171764
----------------------------------------------------------------
-Level Utility
-152
-248
-583
-2075
-7035
-22780
-69680
-192960
-428800
-343040
-0
-0
---------------------------------------------------------------------
-Level 2: 610
-Level 3: 280
-Level 4: 92
-Level 5: 26
-Level 6: 16
-Maximum utilised level in the cache: 4 utility : 24
-Minimum utilised level in the cache: 2 utility : 4
-Mean: 5.007812
-Standard Deviation: 2.274152
-Variance: 5.171766
----------------------------------------------------------------
-Level Utility
-216
-216
-959
-3425
-11550
-37400
-114400
-316800
-704000
-563200
-0
-0
---------------------------------------------------------------------
 Level 1: 4
-Level 2: 189
-Level 3: 182
-Level 4: 167
-Level 5: 161
-Level 6: 147
+Level 2: 190
+Level 3: 184
+Level 4: 168
+Level 5: 151
+Level 6: 150
 Level 7: 117
-Level 8: 44
+Level 8: 47
 Level 9: 13
-Maximum utilised level in the cache: 1 utility : 150
-Minimum utilised level in the cache: 7 utility : 0
-Mean: 0.890625
-Standard Deviation: 6.764995
-Variance: 45.765160
----------------------------------------------------------------
-Level Utility
-106263
-300959
-498499
-481208
-408508
-357252
-370889
-522170
-867893
-694256
-0
-0
---------------------------------------------------------------------
-Level 1: 4
-Level 2: 183
-Level 3: 178
-Level 4: 162
-Level 5: 171
-Level 6: 143
-Level 7: 120
-Level 8: 53
-Level 9: 10
-Maximum utilised level in the cache: 1 utility : 76
-Minimum utilised level in the cache: 3 utility : 0
-Mean: 0.741211
-Standard Deviation: 4.892832
-Variance: 23.939810
----------------------------------------------------------------
-Level Utility
-211821
-602443
-996315
-959150
-805664
-677640
-627492
-727500
-1031927
-825305
-0
-0
---------------------------------------------------------------------
-Level 1: 4
-Level 2: 180
-Level 3: 177
-Level 4: 157
-Level 5: 157
-Level 6: 161
-Level 7: 116
-Level 8: 57
-Level 9: 15
-Maximum utilised level in the cache: 1 utility : 207
-Minimum utilised level in the cache: 4 utility : 0
-Mean: 0.944336
-Standard Deviation: 8.137451
-Variance: 66.218109
----------------------------------------------------------------
-Level Utility
-317493
-903457
-1493700
-1435933
-1201358
-997097
-883380
-931912
-1195574
-956306
-0
-0
---------------------------------------------------------------------
-Level 1: 4
-Level 2: 193
-Level 3: 174
-Level 4: 160
-Level 5: 160
-Level 6: 151
-Level 7: 114
-Level 8: 51
-Level 9: 17
-Maximum utilised level in the cache: 1 utility : 148
+Maximum utilised level in the cache: 2 utility : 95
 Minimum utilised level in the cache: 2 utility : 0
-Mean: 0.902344
-Standard Deviation: 6.882512
-Variance: 47.368973
+Mean: 0.697266
+Standard Deviation: 4.698764
+Variance: 22.078381
 ---------------------------------------------------------------
 Level Utility
-423165
-1204381
-1991038
-1913862
-1599096
-1317874
-1139998
-1137350
-1359779
-1087836
+105847
+301446
+497591
+477169
+396376
+319365
+255886
+204962
+163892
+131184
 0
 0
 --------------------------------------------------------------------
-Level 2: 610
-Level 3: 280
-Level 4: 92
-Level 5: 26
-Level 6: 16
-Maximum utilised level in the cache: 4 utility : 24
-Minimum utilised level in the cache: 3 utility : 4
-Mean: 5.007812
-Standard Deviation: 2.274152
-Variance: 5.171766
+Level 1: 4
+Level 2: 178
+Level 3: 176
+Level 4: 167
+Level 5: 168
+Level 6: 144
+Level 7: 117
+Level 8: 58
+Level 9: 12
+Maximum utilised level in the cache: 1 utility : 215
+Minimum utilised level in the cache: 8 utility : 0
+Mean: 1.025391
+Standard Deviation: 8.962553
+Variance: 80.327354
 ---------------------------------------------------------------
 Level Utility
-423252
-1204505
-1991209
-1914362
-1600776
-1323314
-1156638
-1183430
-1462179
-1169756
+211383
+602259
+995673
+955164
+794095
+639910
+512601
+410078
+328077
+262899
 0
 0
 --------------------------------------------------------------------
-Level 2: 610
-Level 3: 280
-Level 4: 92
-Level 5: 26
-Level 6: 16
-Maximum utilised level in the cache: 4 utility : 24
-Minimum utilised level in the cache: 4 utility : 4
-Mean: 5.007812
-Standard Deviation: 2.274152
-Variance: 5.171765
+Level 1: 4
+Level 2: 171
+Level 3: 183
+Level 4: 156
+Level 5: 162
+Level 6: 147
+Level 7: 124
+Level 8: 61
+Level 9: 16
+Maximum utilised level in the cache: 1 utility : 138
+Minimum utilised level in the cache: 4 utility : 0
+Mean: 0.750000
+Standard Deviation: 5.748131
+Variance: 33.041016
 ---------------------------------------------------------------
 Level Utility
-423316
-1204505
-1991209
-1914362
-1600776
-1323314
-1156638
-1183430
-1462179
-1169756
+317535
+903458
+1494106
+1433174
+1191525
+960259
+768983
+615126
+492432
+394087
 0
 0
 --------------------------------------------------------------------
-Level 2: 606
-Level 3: 270
-Level 4: 74
-Level 6: 7
-Level 7: 14
-Level 8: 22
-Level 9: 31
-Maximum utilised level in the cache: 6 utility : 16
-Minimum utilised level in the cache: 2 utility : 4
-Mean: 4.972656
-Standard Deviation: 2.144957
-Variance: 4.600839
+Level 1: 5
+Level 2: 180
+Level 3: 183
+Level 4: 162
+Level 5: 158
+Level 6: 155
+Level 7: 105
+Level 8: 60
+Level 9: 16
+Maximum utilised level in the cache: 1 utility : 174
+Minimum utilised level in the cache: 8 utility : 0
+Mean: 0.914062
+Standard Deviation: 7.431763
+Variance: 55.231098
 ---------------------------------------------------------------
 Level Utility
-423424
-1204505
-1991209
-1914362
-1600776
-1323314
-1156638
-1183430
-1462179
-1169756
+423674
+1203445
+1991422
+1910734
+1588572
+1280358
+1025613
+820209
+656429
+525181
+0
+0
+--------------------------------------------------------------------
+Level 1: 4
+Level 2: 168
+Level 3: 175
+Level 4: 179
+Level 5: 152
+Level 6: 146
+Level 7: 120
+Level 8: 58
+Level 9: 22
+Maximum utilised level in the cache: 1 utility : 265
+Minimum utilised level in the cache: 3 utility : 0
+Mean: 0.885742
+Standard Deviation: 9.208980
+Variance: 84.805305
+---------------------------------------------------------------
+Level Utility
+529204
+1503713
+2488575
+2388379
+1986240
+1601014
+1282521
+1025939
+820702
+656128
+0
+0
+--------------------------------------------------------------------
+Level 1: 4
+Level 2: 181
+Level 3: 168
+Level 4: 173
+Level 5: 160
+Level 6: 146
+Level 7: 127
+Level 8: 46
+Level 9: 19
+Maximum utilised level in the cache: 1 utility : 246
+Minimum utilised level in the cache: 8 utility : 0
+Mean: 0.984375
+Standard Deviation: 9.526357
+Variance: 90.751465
+---------------------------------------------------------------
+Level Utility
+635174
+1804078
+2986315
+2866517
+2384189
+1922308
+1540049
+1231944
+985681
+788180
+0
+0
+--------------------------------------------------------------------
+Level 1: 4
+Level 2: 185
+Level 3: 184
+Level 4: 170
+Level 5: 162
+Level 6: 155
+Level 7: 99
+Level 8: 50
+Level 9: 15
+Maximum utilised level in the cache: 1 utility : 204
+Minimum utilised level in the cache: 3 utility : 0
+Mean: 1.033203
+Standard Deviation: 8.415815
+Variance: 70.825951
+---------------------------------------------------------------
+Level Utility
+740862
+2105114
+3483597
+3343370
+2780520
+2241948
+1796033
+1436752
+1149532
+919196
+0
+0
+--------------------------------------------------------------------
+Level 1: 4
+Level 2: 167
+Level 3: 175
+Level 4: 163
+Level 5: 168
+Level 6: 150
+Level 7: 126
+Level 8: 56
+Level 9: 15
+Maximum utilised level in the cache: 1 utility : 79
+Minimum utilised level in the cache: 3 utility : 0
+Mean: 0.795898
+Standard Deviation: 5.160530
+Variance: 26.631067
+---------------------------------------------------------------
+Level Utility
+846151
+2405616
+3980938
+3820836
+3177285
+2561693
+2052081
+1641671
+1313808
+1050595
+0
+0
+--------------------------------------------------------------------
+Level 1: 6
+Level 2: 179
+Level 3: 174
+Level 4: 170
+Level 5: 160
+Level 6: 149
+Level 7: 108
+Level 8: 55
+Level 9: 23
+Maximum utilised level in the cache: 1 utility : 287
+Minimum utilised level in the cache: 6 utility : 0
+Mean: 0.984375
+Standard Deviation: 10.267589
+Variance: 105.423370
+---------------------------------------------------------------
+Level Utility
+952309
+2706783
+4479239
+4298702
+3574066
+2881340
+2307983
+1846479
+1477396
+1181382
+0
+0
+--------------------------------------------------------------------
+Level 1: 4
+Level 2: 174
+Level 3: 171
+Level 4: 176
+Level 5: 156
+Level 6: 148
+Level 7: 117
+Level 8: 62
+Level 9: 16
+Maximum utilised level in the cache: 1 utility : 188
+Minimum utilised level in the cache: 5 utility : 0
+Mean: 1.069336
+Standard Deviation: 9.240927
+Variance: 85.394730
+---------------------------------------------------------------
+Level Utility
+1057883
+3007890
+4976626
+4776127
+3970540
+3201227
+2564256
+2052001
+1641948
+1312566
 0
 0
 --------------------------------------------------------------------
 
 10000000search count
-9872169 Hit Count
+9681410 Hit Count
 10000000 number_queries
-98.721690 % Hit Rate
-47914368 Levels iterated over
+96.814100 % Hit Rate
+82280291 Levels iterated over
 Level, Frequency
 1, 0
-2, 3840252
-3, 1537329
-4, 466872
-5, 153469
-6, 177759
-7, 641510
-8, 1638785
-9, 1120600
-10, 423424
+2, 741
+3, 3025
+4, 15280
+5, 76316
+6, 368615
+7, 1585623
+8, 4095500
+9, 2797017
+10, 1057883
 11, 0
