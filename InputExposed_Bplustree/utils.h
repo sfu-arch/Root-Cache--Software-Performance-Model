@@ -87,7 +87,8 @@ void TreeNode::levelIter(int level){
   // cout<<node_util<<endl;
   // cout<<"occupancy: "<< n << endl;
   level_utility[level]+=node_util;
-  for(int i = 0; i < n; i++){
+  node_util = 0;
+  for(int i = 0; i <= n; i++){
     if(leaf == false)
       C[i]->levelIter(level+1);
   }
@@ -122,7 +123,7 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int it
 
   levels++;
   iter_levels++;
-  node_util++;
+  node_util++; //Node utility updated on node search on key.
   int i = 0;
   // flg=0;
   // TreeNode* res2;

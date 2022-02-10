@@ -21,7 +21,7 @@ using namespace std;
 std::mutex mtx1;
 std::atomic<int> src_count;
 std::atomic<int>total_count;
-//
+int temp[12];
 void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int thread_id)
 {
   int insert_flag=0;
@@ -37,10 +37,6 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
       src_count.fetch_add(1);
     }
     total_count.fetch_add(1);
-    int temp[12];
-    // mtx1.unlock();
-    for(int i = 0; i < 12; i++)
-        temp[i] = 0;
     if(total_count%1000000 == 0){
       // cout<<"Search No. "<<j<<endl;
       // cout<<"--------------------------------------------------------------------"<<endl;
@@ -58,7 +54,6 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
       for(int i = 0; i < 12; i++){
         cout<< level_utility[i] - temp[i]<< endl;
         temp[i] = level_utility[i];
-        level_utility[i] = 0;
       }
       cout<<"--------------------------------------------------------------------"<<endl;
     }
@@ -71,6 +66,11 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
 }
 
 int main(int argc, char *argv[]) {
+
+  // mtx1.unlock();
+  for(int i = 0; i < 12; i++)
+      temp[i] = 0;
+  //
 
 // cxxopts::Options options("pi_calculation",
 //                            "Calculate pi using serial and parallel execution");
