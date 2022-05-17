@@ -47,7 +47,7 @@ void search_helper(BTree t, RootCache* R1, int start_ind, int end_ind, int threa
       
       t.levelTraverse();
       
-
+      R1->displayRootCache();
       R1->displayCacheDist();
 
       cout << "Level Utility" << endl;
@@ -218,7 +218,7 @@ cout<<endl<<src_count<<"search count"<<endl;
   cout<<R1.getHitRate()<<" % Hit Rate"<<endl;
 cout<<levels<<" Levels iterated over"<<endl;
 cout<<"Level, Frequency"<<endl;
-for(int i = 0; i < 11; i++){
-  cout << i+1<<", "<<arr_levels[i]<<endl;
+for(int i = 0; i < 20; i++){
+  cout << i<<", "<<arr_levels[i]<<endl;
 }
 }

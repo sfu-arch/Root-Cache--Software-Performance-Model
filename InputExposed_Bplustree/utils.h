@@ -4,9 +4,13 @@
 #include <time.h>
 #include <mutex>
 #include <atomic>
+#include <string>
+#include <sstream>
+#include <fstream>
 using namespace std;
 int levels = 0;
 int arr_levels[120];
+FILE *trace_cursor;
 // std::atomic<uint> flg;
 // flg=0;
 
@@ -47,16 +51,17 @@ class BTree {
     if(ptr!=NULL){
       // cout<<"not root\n";
       insert_flag=1;
-      
-    res1= ptr->search(k, R1, flg, res2, iterLevels);
-    // return ptr->search(k, R1);
+      // cout << iterLevels << "\n";
+      arr_levels[iterLevels]++;
+      res1= ptr->search(k, R1, flg, res2, iterLevels);
+      // return ptr->search(k, R1);
 
   }
     else
     {
       insert_flag=0;
     // return (root == NULL) ? NULL : root->search(k, R1);
-    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2, 0);
+    res1=(root == NULL) ? NULL : root->search(k, R1, flg, res2, 1);
   }
   // mtx2.unlock();
   return res1;
@@ -122,7 +127,7 @@ void TreeNode::traverse() {
 TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int iter_levels) {
 
   levels++;
-  iter_levels++;
+  
   node_util++; //Node utility updated on node search on key.
   int i = 0;
   // flg=0;
@@ -144,11 +149,11 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int it
     if(flg==1)
     {
       flg=0;
-      arr_levels[iter_levels-1]++;
+      // arr_levels[iter_levels-1]++;
       return res2;
     }
     else{
-      arr_levels[iter_levels-1]++;
+      // arr_levels[iter_levels-1]++;
       return NULL;
     }
     // res2=NULL;
@@ -156,9 +161,9 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int it
     if(insert_flag==0 && i!=n && leaf!=true && keys[i]!=k)
     {
       if(keys[i-1]!=0)
-    R1->insert1(keys[i-1], keys[i], iter_levels, (uint64_t)this);
-    else //added
-    R1->insert1(k, keys[i], iter_levels, (uint64_t)this);//added
+        R1->insert1(keys[i-1], keys[i], iter_levels, (uint64_t)this);
+      else //added
+        R1->insert1(k, keys[i], iter_levels, (uint64_t)this);//added
     }
   insert_flag=0;
   // mtx3.unlock();
@@ -166,6 +171,7 @@ TreeNode *TreeNode::search(int k, RootCache *R1, int flg, TreeNode* res2, int it
   // {
   //   return res2;
   // }
+  iter_levels++;
   return C[i]->search(k, R1, flg, res2, iter_levels);
 }
 

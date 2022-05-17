@@ -120,7 +120,7 @@ public:
       }
     }
     if(res){
-      *iterLevels= getLevels(root_cache[i], key);
+      *iterLevels= getEntryLevel(root_cache+ref);
       hit_count++;
       root_cache[ref].utility_counter=number_queries;
       root_cache[ref].used_counter++;
@@ -136,7 +136,7 @@ public:
     cout<< "No. of Entries Filled: "<< occupied << endl;
     cout<< "Start, "<<"End, "<<"Range Address, "<<"Range Size, "<<"Utility Count"<<"Level Present at\n";
 
-    for(int i = 0; i < occupied; i++)
+    for(int i = 0; i < 32; i++)
       displayEntry(&root_cache[i]);
 
   }
