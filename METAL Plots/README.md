@@ -8,4 +8,4 @@ Architectural Model
     3. Bar Graphs - Non primitive METAL levels saved due to shortcircuiting. Argument for domain specific tags. vs Generic Addresses.
 
 2. Gem5-S : 
-        1. Index Cache vs Address Based Cache for sequential search  latency. Latency vs Cache Size.
+    1. Index Cache vs Address Based Cache for sequential search  latency. Latency vs Cache Size.
