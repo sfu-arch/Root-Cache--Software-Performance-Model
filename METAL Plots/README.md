@@ -37,5 +37,10 @@ Proactive:
         cache_insert_node(start_index, end_index):
             Partial_Traversal_BTree()
             cache_insert()
+            
+            
+  Probabilistic Proactive:
+  
+    Unbounded Filter: Level Constraint with node index constraint; invisible cache shape and size.
 
 
