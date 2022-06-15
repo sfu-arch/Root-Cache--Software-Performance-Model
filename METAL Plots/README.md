@@ -17,5 +17,11 @@ Architectural Model
     4. Gather (Level Vs Key) : Tuned Parameters Gather Vs Moving Key Gather Vs basic performance plot (in levels traversed)
     5. Gather (Level Vs Key) : Occupancy per level (FSME: Full Search Motion Estimation; y^2 = 4ax)
 
+Proactive:
+
+    Partial Filter: Level Constraint with node index constraint.
+    
+    cache_insert_level(start_level, end_level):
+        cache_insert_node(start_index, end_index)
 
 
