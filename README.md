@@ -1,4 +1,4 @@
-# Root-Cache--Software-Performance-Model
+# Index Cache: Architectural Model
 
 The Model is located in `InputExposed_Bplustree`. 
 The model is split into the Input Generator and the Bplus Tree Functionality.
