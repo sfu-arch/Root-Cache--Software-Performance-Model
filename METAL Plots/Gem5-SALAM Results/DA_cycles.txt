@@ -1,0 +1,6 @@
+Data Analytics Computation Cycle Count
+
+WHERE, 31
+DELETE, 16
+UPDATE, 22
+
