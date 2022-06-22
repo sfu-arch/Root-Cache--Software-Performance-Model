@@ -1,2 +1,3 @@
 ABC Vs METAL
-METAL max improvement: 
+
+METAL max improvement: 43.17% cycles saved
