@@ -51,6 +51,11 @@ for i in range(3):
     metal[i]=10-metal[i]
     xcache[i]=10-xcache[i]
 
+for i in range(5):
+	opt[i]=opt[i]*0.9
+	prefetch[i]=prefetch[i]*0.9
+	cache[i]=cache[i]*0.9
+
 X_AXIS = np.linspace(1.5,len(BM_name),len(BM_name))
 
 
