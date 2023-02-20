@@ -1,6 +1,8 @@
 import sys
 
 import math
+from scipy.stats import gmean
+
 
 
 import matplotlib.pyplot as plt
@@ -35,11 +37,11 @@ cache =[]
 
 font = 16
 
-BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree"]
-stream =     ([12.62, 9.31, 8.21 , 2.36, 4.96,13.42,18.33,21.42, 10.06,22.46])
-cache = ([7.28, 7.17, 7.03, 1.81, 3.03,10.79,14.08,19.76,7.83,20.62])
-metal = (([5.17, 2.54, 1.83 , 1.15, 1.08,5.96,9.62,11.31,2.26,15.16]))
-xcache = (([7.06, 7.04, 6.93 , 1.74, 1.17,8.37,13.78,18.27,4.78,19.96]))
+BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree","Geomean"]
+stream =     ([12.62, 9.31, 8.21 , 2.36, 4.96,13.42,18.33,21.42, 10.06,22.46,1])
+cache = ([7.28, 7.17, 7.03, 1.81, 3.03,10.79,14.08,19.76,7.83,20.62,0])
+metal = (([5.17, 2.54, 1.83 , 1.15, 1.08,5.96,9.62,11.31,2.26,15.16,0]))
+xcache = (([7.06, 7.04, 6.93 , 1.74, 1.17,8.37,13.78,18.27,4.78,19.96,0]))
 scaling=([1,3.17,4.32,3.62])
 
 X_AXIS = np.linspace(1,len(BM_name),len(BM_name))
@@ -60,7 +62,7 @@ plt.xticks(size=font, va="top")
 plt.yticks(fontsize = font, color='k')
 
 
-xticks_minor = [ 3.5,4.5, 5.5, 8.5, 12.5 ]
+xticks_minor = [ 3.5,4.5, 5.5, 8.5, 12.5, 13.4 ]
 
 ax.set_xticks( xticks_minor, minor=True )
 
@@ -68,7 +70,28 @@ ax.tick_params( axis='x', which='minor', direction='out', length=40, width =3 )
 plt.yticks(fontsize = font, color='k')
 
 ax.set_xticklabels(BM_name)
+prod=1
+met=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+xc1=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+fa1=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+for i,X in  enumerate(stream):
+    if(i==10):
+        break
+    met[i] = (X/metal[i])*scaling[2]
+    xc1[i]= (X/xcache[i])*scaling[3]
+    fa1[i] = (X/cache[i])*scaling[1]
+    
+geomean=math.pow(prod,len(stream))
+print("trial",geomean)
 
+#calculate geometric mean
+metal[-1]=scaling[2]/(gmean(met))
+cache[-1]=scaling[1]/(gmean(fa1))
+xcache[-1]=scaling[3]/(gmean(xc1))
+
+print("by 1")
+print(metal[-1])
+print(stream[-1])
 summ=0
 plt.bar([i - 0.2 for i in X_AXIS], [(X/metal[i])*scaling[2] for i,X in  enumerate(stream)], hatch = "//", width  = 0.2, color = "#e9e9e9")
 plt.bar([i + 0.0 for i in X_AXIS], [(X/xcache[i])*scaling[3] for i,X in  enumerate(stream)], hatch = ".", width  = 0.2, color = "gray")
@@ -81,6 +104,29 @@ print()
 avg=(summ*scaling[2])/(10*scaling[0])
 print("avg is",avg)
 
+#geometric mean
+
+# prod=1
+# met=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+# xc1=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+# fa1=([0, 0, 0 , 0, 0,0,0, 0,0,0])
+# for i,X in  enumerate(stream-1):
+#     met[i] = (X/metal[i])*scaling[2]
+#     xc1[i]= (X/xcache[i])*scaling[3]
+#     fa1[i] = (X/cache[i])*scaling[1]
+    
+# geomean=math.pow(prod,len(stream))
+# print("trial",geomean)
+
+# #calculate geometric mean
+print("geomeans")
+print(metal[-1])
+print(cache[-1])
+print(xcache[-1])
+print("stream/value")
+print(stream[-1]/metal[-1])
+print("by 1")
+print(scaling[2]/metal[-1])
 # plt.plot(0, y, '-r', label='y=2x+1')
 with open('hbm_Values', 'w') as f:
     # f.writelines(lines)
@@ -107,7 +153,7 @@ f.close()
 legend = ["METAL","X-Cache", "FA-Addr", "Stream"]
 plt.legend(legend, fontsize=font, loc='best', ncol = 4, frameon=True,
            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.75, 1.15))
-plt.axhline(avg, color = 'r', linestyle = '-',linewidth=2)
+# plt.axhline(geom, color = 'r', linestyle = 'dotted',linewidth=2)
 
 plt.ylabel('Norm. Speedup', size = font, color='k')
 # plt.ylim([0,25])
@@ -119,6 +165,7 @@ plt.annotate("B+ Tree Search",     (0.09,-0.3), xycoords='axes fraction', textco
 # plt.annotate("SpMV",   (0.47,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 # plt.annotate("SpMM",   (0.9,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.annotate("Data Analytics",   (0.62,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("Geomean",   (0.82,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig
 plt.savefig('./Plots/pdfs/Performance_HBM.pdf')
