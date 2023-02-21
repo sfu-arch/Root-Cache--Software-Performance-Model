@@ -131,13 +131,13 @@ ax2.plot([i + 0.2 for i in X_AXIS], [tbit_mr[i] for i,X in  enumerate(tbit_mr)],
 
 # plt.title('Runtime Comparision', size =font)
 legend = ["64 wide","256 wide", "1024 wide"]
-ax.legend(legend, fontsize=24, loc='best', ncol = 4, frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.85, 1.15))
+ax.legend(legend, fontsize=font, loc='best', ncol = 4, frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1, 1.3))
 # plt.axhline(geom, color = 'r', linestyle = 'dotted',linewidth=2)
 
 ax2.set_ylabel('Miss Rate', color='r',fontsize=font)
 ax2.yaxis.set_tick_params(labelsize=font,labelcolor="r")
-ax.set_ylabel('Norm. Performance', size=font, color='k')
+ax.set_ylabel('Norm. Walk Latency', size=font, color='k')
 # ax2.tick_params(axis='y', which='minor', left=False)
 # plt.ylim(0, 3.0)
 ax2.set_ylim(0,1)# plt.ylim([0,25])

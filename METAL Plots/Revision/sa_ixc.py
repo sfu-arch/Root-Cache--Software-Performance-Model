@@ -143,8 +143,8 @@ ax2.plot([i + 0.52 for i in X_AXIS], vc_s_mr, 'r',marker="o",linestyle="none",ma
 #     k=k+1
 
 legend = ["4-way", "8-way", "16-way", "16-way VC","16-way VC16"]
-ax.legend(legend, fontsize=20, loc='best', frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.1,1.15), ncol=6)
+ax.legend(legend, fontsize=24, loc='best', frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.2,1.23), ncol=6,handletextpad=0.1)
 ax2.set_ylabel('Miss Rate', color='r',fontsize=font)
 ax2.yaxis.set_tick_params(labelsize=32,labelcolor="r")
 ax.set_ylabel('Norm. Performance', size=font, color='k')

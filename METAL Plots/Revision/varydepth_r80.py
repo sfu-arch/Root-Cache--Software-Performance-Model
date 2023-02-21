@@ -100,7 +100,7 @@ ax.set_xticklabels(BM_name)
 plt.plot(BM_name,[(r80_512[i]*5+r80_5121[i]*100) for i in range(len(r80_512))],marker="^",color="red",linewidth=5,markersize=20)
 plt.plot (BM_name,[(r80_64[i]*5+r80_641[i]*100) for i in range(len(r80_64))],marker="o",color="blue",linewidth=5,markersize=20)
 plt.plot (BM_name,[(r80_128[i]*5+r80_1281[i]*100) for i in range(len(r80_128))],marker="v",color="orange",linewidth=5,markersize=20)
-plt.plot (BM_name,[(r80_256[i]*5+r80_2561[i]*100) for i in range(len(r80_256))],marker="x",color="green",linewidth=5,markersize=20)
+plt.plot (BM_name,[(r80_256[i]*5+r80_2561[i]*100) for i in range(len(r80_256))],marker="s",color="green",linewidth=5,markersize=20)
 
 
 
