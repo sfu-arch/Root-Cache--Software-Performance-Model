@@ -24,7 +24,7 @@ print(sys.path)
 mpl.rc('font', family='sans-serif')
 matplotlib.style.use('ggplot')
 
-font = 24
+font = 20
 X_AXIS_name = []
 X_AXIS = np.linspace(0.1, 0.9, 9)
 
@@ -35,9 +35,9 @@ stream =[]
 metal=[]
 cache =[]
 
-font = 16
+font = 18
 
-BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree","Geomean"]
+BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree","G.Mean"]
 stream =     ([12.62, 9.31, 8.21 , 2.36, 4.96,13.42,18.33,21.42, 10.06,22.46,1])
 cache = ([7.28, 7.17, 7.03, 1.81, 3.03,10.79,14.08,19.76,7.83,20.62,0])
 metal = (([5.17, 2.54, 1.83 , 1.15, 1.08,5.96,9.62,11.31,2.26,15.16,0]))
@@ -159,13 +159,13 @@ plt.ylabel('Norm. Speedup', size = font, color='k')
 # plt.ylim([0,25])
 # plt.xlabel('Benchmark', size = font, color='k')
 
-plt.annotate("B+ Tree Search",     (0.09,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
+plt.annotate("B+ Tree Search",     (0.09,-0.22), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
 
 # plt.annotate("Hash\nTable",(0.37,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
 # plt.annotate("SpMV",   (0.47,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 # plt.annotate("SpMM",   (0.9,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
-plt.annotate("Data Analytics",   (0.62,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
-plt.annotate("Geomean",   (0.82,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("Data Analytics",   (0.52,-0.22), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+# plt.annotate("Geomean",   (0.82,-0.22), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig
 plt.savefig('./Plots/pdfs/Performance_HBM.pdf')

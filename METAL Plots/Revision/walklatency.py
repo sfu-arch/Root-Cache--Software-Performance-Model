@@ -41,51 +41,25 @@ prefetch = ([4.6, 1.92, 5.0, 6.63, 8.02])
 cache = ([2.37, 1.82, 2.4, 8.21, 9.26])
 metal = (([6.08, 5.73, 6.21, 3.02, 5.27]))
 xcache = ([3.98, 1.77,4.87, 6.03, 7.86])
-sway_cache=([0,0,0,0,0])
-eway_cache=([0,0,0,0,0])
 # nrm = [5, 2, 6.5,6,4.72,3.87,5.06,3.21]
 
-opt1=([0,0,0,0,0])
-prefetch1=([0,0,0,0,0])
-cache1=([0,0,0,0,0])
-sway_cache1=([0,0,0,0,0])
-metal1=([0,0,0,0,0])
-xcache1=([0,0,0,0,0])
-eway_cache1=([0,0,0,0,0])
 
 for i in range(3):
-    opt1[i]=10-opt[i]
-    prefetch1[i]=10-prefetch[i]
-    cache1[i]=10-cache[i]
-    metal1[i]=10-metal[i]
-    xcache1[i]=10-xcache[i]
-    sway_cache1[i]=(10-cache[i])/1.72
-    eway_cache1[i]=(10-cache[i])/1.48
-
-for i in range(3,5):
-    opt1[i]=opt[i]
-    prefetch1[i]=prefetch[i]
-    cache1[i]=cache[i]
-    metal1[i]=metal[i]
-    xcache1[i]=cache[i]
-    sway_cache1[i]=(cache[i])/1.72
-    eway_cache1[i]=(cache[i])/1.48
+    opt[i]=10-opt[i]
+    prefetch[i]=10-prefetch[i]
+    cache[i]=10-cache[i]
+    metal[i]=10-metal[i]
+    xcache[i]=10-xcache[i]
 
 for i in range(5):
-    opt[i]=opt[i]*0.4+opt1[i]*100
-    prefetch[i]=prefetch[i]*0.4 + prefetch1[i]*100
-    sway_cache[i]=cache[i]*0.688 + sway_cache1[i]*100
-    eway_cache[i]=cache[i]*0.4*1.48+eway_cache1[i]*100
-    cache[i]=cache[i]*0.4 + cache1[i]*100
-    metal[i]=metal[i]*1+metal1[i]*100
-    xcache[i]=xcache[i]*1+xcache1[i]*100
+	opt[i]=opt[i]*0.9
+	prefetch[i]=prefetch[i]*0.9
+	cache[i]=cache[i]*0.9
 
 X_AXIS = np.linspace(1.5,len(BM_name),len(BM_name))
 
-print(sway_cache1)
-print(cache1)
 
-fig,ax=plt.subplots(figsize=(23, 6))
+fig,ax=plt.subplots(figsize=(18, 6))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -113,14 +87,11 @@ ax.set_xticklabels(BM_name)
 
 
 
-bar1 = plt.bar([i -0.104 for i in X_AXIS], [metal[i] for i,X in  enumerate(metal)], width  = 0.1,  hatch = "//", color = "#e9e9e9")
-plt.bar([i +0.0 for i in X_AXIS], [xcache[i] for i,X in  enumerate(xcache)], hatch = ".",width  = 0.1, color = "gray")
-plt.bar([i +0.102 for i in X_AXIS], [opt[i] for i,X in  enumerate(opt)], hatch = "--", width  = 0.1, color = "black")
-plt.bar([i + 0.21 for i in X_AXIS], [cache[i] for i,X in  enumerate(metal)], width  = 0.1, color = "#b1b1b1")
-plt.bar([i +0.315 for i in X_AXIS], [prefetch[i] for i,X in  enumerate(prefetch)], hatch = "--",edgecolor="black",width  = 0.1, color = "white")
-plt.bar([i +0.425 for i in X_AXIS], [sway_cache[i] for i,X in  enumerate(sway_cache)], hatch = "\\\\",edgecolor="black",width  = 0.1, color = "#c1c1c1")
-plt.bar([i +0.535 for i in X_AXIS], [eway_cache[i] for i,X in  enumerate(eway_cache)], hatch = "--",edgecolor="black",width  = 0.1, color = "#d1d1d1")
-
+bar1 = plt.bar([i -0.154 for i in X_AXIS], [metal[i] for i,X in  enumerate(metal)], width  = 0.15,  hatch = "//", color = "#e9e9e9")
+plt.bar([i +0.0 for i in X_AXIS], [xcache[i] for i,X in  enumerate(xcache)], hatch = ".",width  = 0.15, color = "gray")
+plt.bar([i +0.152 for i in X_AXIS], [opt[i] for i,X in  enumerate(opt)], hatch = "--", width  = 0.15, color = "black")
+plt.bar([i + 0.31 for i in X_AXIS], [cache[i] for i,X in  enumerate(metal)], width  = 0.15, color = "#b1b1b1")
+plt.bar([i +0.465 for i in X_AXIS], [prefetch[i] for i,X in  enumerate(prefetch)], hatch = "--",edgecolor="black",width  = 0.15, color = "white")
 # plt.bar([i - 0.20 for i in X_AXIS], [X/metal[i] for i,X in  enumerate(stream)], hatch = "--", width  = 0.2, color = "black", height=1.6)
 # plt.bar([i + 0.05 for i in X_AXIS], [X/cache[i] for i,X in  enumerate(stream)], hatch = "||", width  = 0.2, color = "#C5C5C5", height=1.6)
 # plt.bar([i + 0.25 for i in X_AXIS], [X/stream[i] for i,X in  enumerate(stream)], hatch = "--", width  = 0.2, color = "#D3D3D3", height=1.6)
@@ -140,12 +111,12 @@ print()
 avg=(summ)/(5)
 print("avg is",avg)
 
-legend = ["METAL","X-Cache","FA-Addr(OPT)","FA-Addr", "Prefetch","FA-Addr(16x)", "Ideal 16-way(32x)"]
+legend = ["METAL","X-Cache","FA-Addr(OPT)","FA-Addr", "Prefetch"]
 plt.legend(legend, fontsize=18,loc='best', frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.99, 1.4),ncol=7)
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.8, 1.2),ncol=5)
 
 plt.ylabel('Walk Latency', size = font, color='k')
-# plt.ylim(0,10.0)
+plt.ylim(0,10.0)
 
 
 
@@ -156,4 +127,5 @@ plt.tight_layout()
 # Uncomment to savefig
 plt.savefig('./Plots/pdfs/walklatency.pdf')
 plt.show()
+
 

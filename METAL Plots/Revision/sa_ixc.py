@@ -31,7 +31,7 @@ stream = []
 metal = []
 cache = []
 
-font = 24
+# font = 24
 
 BM_name = ["B+Tree", "Hash", "SpMM","Analy.","RTree"]
 opt = ([0.39, 0.53, 0.56, 0.37,0.92])#miss rate
@@ -80,9 +80,9 @@ fig, ax = plt.subplots(figsize=(14, 6))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
-plt.grid(linestyle='--', linewidth=2, which='major', color='darkgray')
+plt.grid(linestyle='--', linewidth=2, which='major', color='gray')
 plt.gca().xaxis.grid(False)
-plt.gca().yaxis.grid(False)
+plt.gca().yaxis.grid(True)
 
 ax.tick_params(axis='y', which='minor', left=False)
 plt.tick_params(axis='both', which='major', direction='in', length=6, width=3)
@@ -105,9 +105,9 @@ ax2 = ax.twinx()
 # ax2.tick_params(axis='y', labelcolor="red")
 
 
-# ax.set_xticklabels(BM_name)
+ax.set_xticklabels(BM_name)
 # ax2.set_yticks(fontsize=font, color='red')
-plt.gca().yaxis.grid(True)
+plt.gca().yaxis.grid(False)
 
 
 
@@ -142,10 +142,11 @@ ax2.plot([i + 0.52 for i in X_AXIS], vc_s_mr, 'r',marker="o",linestyle="none",ma
 #     plt.text(i.get_x() + i.get_width()/2.0, height, str(nrm[k]) + 'x', ha="center", va="bottom", fontsize=24, color="red", weight="bold")
 #     k=k+1
 
-# legend = ["Miss Rate", "4-way", "8-way", "16-way", "16-way VC","16-way VC16"]
-# plt.legend(legend, fontsize=18, loc='best', frameon=True,
-#            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.82,1.15), ncol=6)
-ax2.set_ylabel('Miss Rate', color='r')
+legend = ["4-way", "8-way", "16-way", "16-way VC","16-way VC16"]
+ax.legend(legend, fontsize=20, loc='best', frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.1,1.15), ncol=6)
+ax2.set_ylabel('Miss Rate', color='r',fontsize=font)
+ax2.yaxis.set_tick_params(labelsize=32,labelcolor="r")
 ax.set_ylabel('Norm. Performance', size=font, color='k')
 # ax2.tick_params(axis='y', which='minor', left=False)
 # plt.ylim(0, 3.0)

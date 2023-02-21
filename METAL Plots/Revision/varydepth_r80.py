@@ -25,7 +25,7 @@ ax = plt.axes()
 mpl.rc('font', family='sans-serif')
 matplotlib.style.use('ggplot')
 
-font = 32
+font = 34
 X_AXIS_name = []
 X_AXIS = np.linspace(0.1, 0.9, 9)
 import matplotlib.pyplot as plt
@@ -73,7 +73,7 @@ for i in range(len(r80_128)):
         r80_5121[i]=18-r80_512[i]
 
 
-fig, ax = plt.subplots(figsize=(14, 8))
+fig, ax = plt.subplots(figsize=(14, 10))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -84,8 +84,8 @@ plt.gca().yaxis.grid(True)
 # ax.tick_params(axis='y', which='minor', left=False)
 # plt.tick_params(axis='both', which='major', direction='in', length=6, width=3)
 # plt.xticks(X_AXIS, ha='center', color='k', rotation=10)
-plt.xticks(size=18, va="top")
-plt.yticks(fontsize=18, color='k')
+plt.xticks(size=font, va="top")
+plt.yticks(fontsize=font, color='k')
 
 
 # xticks_minor = [0]
@@ -93,7 +93,7 @@ plt.yticks(fontsize=18, color='k')
 
 # ax.tick_params(axis='x', which='minor', direction='out', length=10, width=1)
 
-plt.yticks(fontsize=18, color='k')
+plt.yticks(fontsize=font, color='k')
 
 ax.set_xticklabels(BM_name)
 
@@ -104,10 +104,10 @@ plt.plot (BM_name,[(r80_256[i]*5+r80_2561[i]*100) for i in range(len(r80_256))],
 
 
 
-legend = ["32K","64K","128K","256K"]
-plt.legend(legend, fontsize=18, loc='best', ncol = 4, frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.8, 1.1))
-plt.ylabel('Walk Latency', size=18, color='k')
-plt.xlabel('IDX Depth', size=18, color='k')
+# legend = ["32K","64K","128K","256K"]
+# plt.legend(legend, fontsize=font, loc='best', ncol = 4, frameon=True,
+#            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.8, 1.1))
+plt.ylabel('Walk Latency', size=font, color='k')
+plt.xlabel('IDX Depth', size=font, color='k')
 plt.savefig("Plots/pdfs/vary_depth_r80.pdf")
 plt.show()

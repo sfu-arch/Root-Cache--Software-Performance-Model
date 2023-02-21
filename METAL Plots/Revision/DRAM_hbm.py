@@ -36,7 +36,7 @@ cache =[]
 
 font = 18
 
-BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree","Geo. Mean"]
+BM_name = ['Rand. 100%', 'Rand. 80%', 'Rand. 40%' , "Hash", "SpMV","SELECT","WHERE","JOIN","SpMM","RTree","G.Mean"]
 stream =     ([167, 167, 167 , 48, 138,1089,1136, 6368,182,8371,1])
 cache = ([126, 113, 101, 33,67,900,960, 4831,102,5721,0])
 metal = (([57, 48, 42, 18,20,480,507, 2889,41,2906,0]))
@@ -81,7 +81,7 @@ for i,X in  enumerate(stream):
 
 metal[-1]=gmean(met)*stream[-1]/scaling[2]
 cache[-1]=gmean(c)*stream[-1]/scaling[1]
-xcache[-1]=gmean(xc)*stream[-1]/scaling[3s]
+xcache[-1]=gmean(xc)*stream[-1]/scaling[3]
 print("geomeans metal, xcache, cache")
 
 print(metal[-1])
@@ -126,7 +126,7 @@ plt.annotate("B+ Tree Search",     (0.09,-0.22), xycoords='axes fraction', textc
 # plt.annotate("Hash\nTable",(0.37,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
 # plt.annotate("SpMV",   (0.47,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 # plt.annotate("SpMM",   (0.9,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
-plt.annotate("Data Analytics",   (0.55,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("Data Analytics",   (0.51,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig
 plt.savefig('./Plots/pdfs/DRAM_HBM.pdf')
