@@ -27,19 +27,21 @@ font = 20
 
 x_pos = [0,1,5,8,9]
 cache =['8','16','32','64','128','256']
-Speedup_16w =[2.71,4.32,9.66,19.23,41.26,41.16]
-Speedup_32w =[4.62,9.31,18.11,37.01,62.13,121.21]
-Speedup_64w=[8.31,16.62,33.11,67.31,121.61,193.17]
-Speedup_128w=[15.31,31.71,62.45,114.35,178.61,217.58]
+Speedup_16w =[3.02,16.08,36.42,37.21,37.93,39.31]
+Speedup_32w =[5.06,20.01,37.82,70.21,71.26,73.21]
+Speedup_64w=[9.61,18.92,40.21,102.62,108.1,109.66]
+Speedup_128w=[17.26,32.17,41.61,109.19,118.36,127.21]
 fig,ax=plt.subplots(figsize=(7, 5.5))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
+
 scaling=[1.12,1.18,1.16,1.21]
 for i in range(len(Speedup_16w)):
     Speedup_16w[i]=Speedup_16w[i]/scaling[0]
     Speedup_32w[i]=Speedup_32w[i]/scaling[1]
     Speedup_64w[i]=Speedup_64w[i]/scaling[2]
     Speedup_128w[i]=Speedup_128w[i]/scaling[3]
+
 plt.scatter(cache, Speedup_16w, marker='^',s=120,edgecolors="black",facecolors="none",linewidths=3)
 plt.scatter(cache, Speedup_32w, marker='o',s=120,edgecolors="black",facecolors="none",linewidths=3)
 plt.scatter(cache, Speedup_64w, marker='+',s=120,edgecolors="black",facecolors="black",linewidths=3)
@@ -58,5 +60,5 @@ plt.gca().yaxis.grid(True)
 plt.xlabel('Cache Size (in kB)',size=font, color='k')
 plt.ylabel('Norm. Speed Up', size=font, color='k')
 # plt.legend(["16 w","32 w","64 w","128w"],fontsize=16,loc='upper left',fancybox=False,edgecolor='k',bbox_to_anchor=(-0.175, 1.20000002),ncol=4)
-plt.savefig('Plots/pdfs/cache_scaling_rtree.pdf')
+plt.savefig('Plots/pdfs/cache_scaling_spmm.pdf')
 # plt.show()

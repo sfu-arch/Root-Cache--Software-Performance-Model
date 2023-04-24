@@ -52,7 +52,7 @@ scaling=([1,3.17,4.32,3.62])
 X_AXIS = np.linspace(1,len(BM_name),len(BM_name))
 
 
-fig,ax=plt.subplots(figsize=(18, 3.5))
+fig,ax=plt.subplots(figsize=(18, 4))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')

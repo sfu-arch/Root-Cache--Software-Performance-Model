@@ -122,7 +122,7 @@ legend = ["METAL","METAL-IX","X-Cache" ,"Addr", "Stream"]
 # plt.legend(legend, fontsize=font, loc='best', ncol = 5, frameon=True,
 #            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.8, 1.2))
 # plt.axhline(geom, color = 'r', linestyle = 'dotted',linewidth=2)
-plt.ylabel(' Norm. DRAM TRAFFIC', size = font, color='k')
+plt.ylabel('DRAM Energy', size = font, color='k',loc="center")
 plt.ylim([0, 1.1])
 # plt.xlabel('\n\n DSAs', size = font, color='k')
 

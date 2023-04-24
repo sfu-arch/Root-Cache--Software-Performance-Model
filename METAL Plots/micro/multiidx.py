@@ -20,7 +20,7 @@ print(sys.path)
 
 
 # all = []
-
+font=24
 def read_file(path):
     f = open(path)
     lines = f.readlines()
@@ -56,14 +56,14 @@ circ3 = mpatches.Patch(facecolor=colors[2],alpha=a_val,hatch='',label='Level 5')
 circ4= mpatches.Patch( facecolor=colors[3],alpha=a_val,hatch='///',label='Level 6')
 circ5 = mpatches.Patch(facecolor=colors[4],alpha=a_val,hatch='',label='Level 7-10')
 
-font = 12
+font = 24
 
 
 
 
 #BM = [ ".", "OPT", ".", "OPT", "."," OPT",".","OPT",".","OPT",".","OPT"]
 
-BM = [ ".", "++", " .", " ++", "  .","   ++","   .","  ++","    .","    ++","      .","        ++"]
+BM = [ "St", "++", " St", " ++", "  St","   ++","   St","  ++","    St","    ++","      St","        ++"]
 # percentage = [[87, 8, 5], [87, 8, 5], [87, 2, 10], [92, 7, 1],  [87, 2, 10] ]legend = ["Level 1", "Level 2", "Level 3", "Level 4","Level 5", "Level 6", "Level 7", "Level 8", "Level 9","Level 10"]
 
 # percentage = [[75, 25],[75, 25],[65,34], [96 , 4], [65,34] ]
@@ -79,9 +79,12 @@ plt.gca().yaxis.grid(True)
 ax.tick_params(axis='y', which='minor', left=False)
 plt.tick_params(axis='both', which='major', direction='in', length=6, width=5)
 
-plt.xticks(rotation=90, va ="top", fontsize = 22 ,ha= 'center', color='k',position=(0,0))
+plt.xticks(rotation=90, va ="top", fontsize = 24 ,ha= 'center', color='k',position=(0,0))
 plt.yticks(fontsize = 24, color='k')
 
+# xticks_minor = [3.5,6.5,8.5, 9.5,10.5 ]
+
+# ax.set_xticks( xticks_minor, minor=True )
 
 width = 0.6
 
@@ -100,15 +103,20 @@ xticks_minor = [ 1.3,3.3,5.3,7.3,9.3]
 ax.set_xticks( xticks_minor, minor=True )
 
 ax.tick_params( axis='x', which='minor', direction='out', length=40, width =3 )
-plt.annotate("B+Tree",(0.0,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
-plt.annotate("Hash",(0.20,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
-plt.annotate("SpMV",(0.35,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
-plt.annotate("JOIN",(0.51,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
-plt.annotate("SpMM",(0.66,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
-plt.annotate("Rtree",(0.83,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = 22 ,weight='bold')
+plt.annotate("B+Tree",(0.0,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
+plt.annotate("JOIN",(0.20,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
+plt.annotate("RTree",(0.35,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font)
+plt.annotate("SpMM",(0.51,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
+plt.annotate("SpMV",(0.66,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
+plt.annotate("KVStore",(0.83,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
 
 plt.legend([circ1,circ2,circ3,circ4,circ5], legend, fontsize=24, loc='upper center', ncol = 5, frameon=True,
           facecolor='w', edgecolor='k', fancybox=False, handletextpad=0.15, labelspacing=0, bbox_to_anchor=(0.5,1.2))
+plt.annotate("Gorgon",     (0.12,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
+
+plt.annotate("Aurochs",(0.34,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
+plt.annotate("Capstan",   (0.56,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("WidX",   (0.85,-0.3), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 
 plt.ylabel('Cache Occupancy', size = 24, color='k')
 # plt.xlabel('Benchmarks', size = font, color='k')
