@@ -13,7 +13,9 @@ from random import randint
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.ticker as ticker
+from matplotlib.ticker import FuncFormatter
 import csv
+
 
 print(sys.path)
 
@@ -47,7 +49,7 @@ cache = []
 # sway_cache_adapt = ([62.8,61.7,63.6,80.4,25.6])
 # vc_e = ([42.6,37.4,58.1,49.7,22.7])
 # vc_s = ([54.3,50.7,60.8,54.8,28.9])
-BM_name =	["B+Tree",	"JOIN",	"RTree",	"SpMM",	"KVStore"]	
+BM_name =	["Scan",	"JOIN",	"RTree",	"SpMM",	"KVStore"]	
 opt = ([	0.39,	0.37	,0.92,	0.56	,0.53	])#miss rate
 cache = (	[0.67,	0.65,	0.92,	0.89	,0.85	])
 xcache = ([	0.82,	0.84,	0.94,0.61	,0.91	])
@@ -130,6 +132,10 @@ ax.set_xticklabels(BM_name)
 # ax2.set_yticks(fontsize=font, color='red')
 plt.gca().yaxis.grid(False)
 
+# def y_fmt(x, y):
+#     return '{:.1f}'.format(y)
+
+# ax2.yaxis.set_major_formatter(FuncFormatter(y_fmt))
 
 
 
@@ -155,6 +161,9 @@ ax2.plot([i + 0.52 for i in X_AXIS], vc_s_mr, 'r',marker="o",linestyle="none",ma
 # plt.bar([i + 0.1 for i in X_AXIS], [X/cache[i] for i,X in  enumerate(stream)], hatch = "||", width  = 0.1, color = "#C5C5C5", height=1.6)
 # plt.bar([i + 0.15 for i in X_AXIS], [X/stream[i] for i,X in  enumerate(stream)], hatch = "--", width  = 0.1, color = "#D3D3D3", height=1.6)
 
+
+# Apply the formatter to the y-axis
+
 # plt.title('Runtime Comparision', size =font)
 
 # k=0
@@ -164,15 +173,15 @@ ax2.plot([i + 0.52 for i in X_AXIS], vc_s_mr, 'r',marker="o",linestyle="none",ma
 #     k=k+1
 
 legend = ["4-way", "8-way", "16-way", "16-way VC32","16-way VC16"]
-ax.legend(legend, fontsize=23, loc='best', frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.25,1.25), ncol=6,handletextpad=0.05)
-ax2.set_ylabel('Miss Rate', color='r',fontsize=font)
-ax2.yaxis.set_tick_params(labelsize=32,labelcolor="r")
-ax.set_ylabel('Norm. Performance', size=font, color='k')
+ax.legend(legend, fontsize=26, loc='best', frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.14,1.255), ncol=6,handletextpad=0.05,columnspacing=0.39)
+label1=ax2.set_ylabel('Miss Rate', color='r',fontsize=32)
+ax2.yaxis.set_tick_params(labelsize=30,labelcolor="r")
+ax.set_ylabel('Norm. Latency', size=font, color='k')
 # ax2.tick_params(axis='y', which='minor', left=False)
 # plt.ylim(0, 3.0)
 ax2.set_ylim(0,1)
-
+# ax2.set_yticks[0].label1.set_visible(False)
 font=24
 plt.annotate("Gorgon", (0.15, -0.13), xycoords='axes fraction',
              textcoords='offset points', va='top', size=font, weight='bold')

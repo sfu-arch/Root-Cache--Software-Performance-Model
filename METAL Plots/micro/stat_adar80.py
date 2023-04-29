@@ -39,7 +39,7 @@ r80_512 = [4.21,3.97,2.69,1.79]#512K
 
 # X_AXIS = np.linspace(1.5, len(BM_name), len(BM_name))
 
-fig, ax = plt.subplots(figsize=(14, 5))
+fig, ax = plt.subplots(figsize=(32, 7))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -79,9 +79,9 @@ ax.plot (BM_name,[(r80_128s[i]*5+(10-r80_128s[i])*100) for i in range(len(r80_12
 ax.plot (BM_name,[(r80_256s[i]*5+(10-r80_256s[i])*100) for i in range(len(r80_256s))],marker="s",linestyle="dotted",color="green",markerfacecolor="none",markersize=20,linewidth=5)
 
 
-legend = ["32K","64K","128K","256K","32K++","64K++","128K++","256K++"]
-# plt.legend(legend, fontsize=font, loc='best', ncol = 8, frameon=True,
-#            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.1, 1.18))
+legend = ["32K++","64K++","128K++","256K++","32kFX","64kFX","128kFX","256kFX"]
+plt.legend(legend, fontsize=font, loc='best', ncol = 8, frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1, 1.18))
 plt.ylabel('Walk Latency', size=font, color='k')
 plt.xlabel('Workload Size', size=font, color='k')
 

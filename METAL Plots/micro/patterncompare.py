@@ -132,7 +132,7 @@ cache =[]
 
 font = 48
 
-BM_name = ["B+Tree" , "JOIN", "SpMV","KVStore","Solver", "RTree"]
+BM_name = ["Scan" , "JOIN", "SpMV","KVStore","Solver", "RTree"]
 # gather = ([2.2, 0, 0, 1.71, 0.624,0])
 # no_pattern = ([1,1,1,1,1,1])
 # fetch  = ([0, 1.82, 3.8, 0, 0,0])
@@ -202,12 +202,12 @@ plt.legend(legend, fontsize=33, loc='best', ncol = 5, frameon=True,
            facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(1.01, 1.15))
 plt.ylabel('Norm. Walk Latency ', size = font, color='k')
 # plt.xlabel('\n\n DSAs', size = font, color='k')
+font1=44
+plt.annotate("Gorgon",     (0.09,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = font1 ,weight='bold')
 
-plt.annotate("Gorgon",     (0.09,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = 40 ,weight='bold')
-
-plt.annotate("Capstan",(0.34,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = 40 ,weight='bold')
-plt.annotate("WidX",   (0.54,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = 40,weight='bold')
-plt.annotate("Aurochs",   (0.74,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = 40,weight='bold')
+plt.annotate("Capstan",(0.34,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = font1 ,weight='bold')
+plt.annotate("WidX",   (0.54,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = font1,weight='bold')
+plt.annotate("Aurochs",   (0.74,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = font1,weight='bold')
 # plt.annotate("Data Analytics",   (0.62,-0.15), xycoords='axes fraction', textcoords='offset points', va='top', size = 40,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig

@@ -37,7 +37,7 @@ cache =[]
 
 font = 20
 
-BM_name = ['Scan 40%' , "WHERE", "JOIN","Nest.Scan","RTree","PageRank","SpMM","SpMV","KVStore","G.MEAN"]
+BM_name = ['Scan 40%' , "WHERE", "JOIN","Nest.SEL","RTree","PageRank","SpMM","SpMV","KVStore","G.MEAN"]
 # stream =     ([12.62, 9.31, 8.21 , 2.36, 4.96,13.42,18.33,21.42, 10.06,22.46,17.89,1])
 # cache = ([7.28, 7.17, 7.03, 1.81, 3.03,10.79,14.08,19.76,7.83,20.62,11.32,0])
 # metal = (([5.17, 2.54, 1.83 , 1.15, 1.08,5.96,9.62,11.31,2.26,15.16,6.13,0]))
@@ -52,7 +52,7 @@ scaling=([1,3.17,4.32,3.62])
 X_AXIS = np.linspace(1,len(BM_name),len(BM_name))
 
 
-fig,ax=plt.subplots(figsize=(18, 4))
+fig,ax=plt.subplots(figsize=(18, 4.4))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -67,7 +67,7 @@ plt.xticks(size=font, va="top")
 plt.yticks(fontsize = font, color='k')
 
 
-xticks_minor = [3.5,6.5,8.5, 9.5,10.5 ]
+xticks_minor = [3.5,6.5,8.5, 9.5 ]
 
 ax.set_xticks( xticks_minor, minor=True )
 

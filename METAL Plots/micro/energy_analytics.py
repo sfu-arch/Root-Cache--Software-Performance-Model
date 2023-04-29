@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib
 import numpy as np
+from statistics import mean
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.ticker import MultipleLocator
 from random import randint
@@ -38,7 +39,7 @@ print(sys.path)
 mpl.rc('font', family='sans-serif')
 matplotlib.style.use('ggplot')
 
-font = 48
+font = 50
 X_AXIS_name = []
 # X_AXIS = np.linspace(0, 0.2, 8)
 # import matplotlib.pyplot as plt
@@ -71,7 +72,7 @@ bottom = np.zeros( 8)
 # import matplotlib.pyplot as plt
 
 # create data
-BM_name = ("B+Tree",	"JOIN",	"RTree"	,"SpMM","KVStore")
+BM_name = ("Scan",	"JOIN",	"RTree"	,"SpMM","KVStore")
 # walk= [84, 91, 62 , 51, 37, 79, 48, 53]
 # compute= [16,9,38,49,63,21,52,47]
 # walk=	np.array([37,	79	,48	,53,	62,	51	,91])
@@ -82,8 +83,11 @@ ixc=	np.array([47.29	,26.89,	17.83,	28.12,	27.14])
 pc=	np.array([16.35	,11.25,32.75,	21.92,	38.55])
 # X_AXIS = np.linspace(0,len(BM_name),len(BM_name))
 
+print("comp,ixc,walk")
+print(mean(compute),mean(ixc),mean(pc))
 
-fig,ax=plt.subplots(figsize=(26, 14))
+
+fig,ax=plt.subplots(figsize=(26, 10))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['left'].set_color('k')
@@ -124,9 +128,9 @@ bar_y = np.arange(len(BM_name))
 # ax.barh(bar_y - bar_height, walk, height=bar_height, label="Walk", color='black')
 # ax.barh(bar_y, compute, height=bar_height, label="Compute", color='grey')
 # ax.barh(bar_y + bar_height, add, height=bar_height, label="Add", color='green')
-ax.barh(BM_name, compute, color='black')
-ax.barh(BM_name, ixc, left=compute, color='grey')
-ax.barh(BM_name, pc, left=compute+ixc, color='#d8d8d8')
+ax.barh(BM_name, compute, color='black',height=0.6)
+ax.barh(BM_name, ixc, left=compute, color='#d8d8d8',height=0.6)
+ax.barh(BM_name, pc, left=compute+ixc, color='grey',height=0.6)
 
 # plt.xlabel('% Execution Time', fontsize=48, color='k')
 # plt.annotate("Gorgon",     (0.12,-0.13), xycoords='axes fraction', textcoords='offset points', va='top', size = 40 ,weight='bold')
@@ -138,9 +142,9 @@ ax.barh(BM_name, pc, left=compute+ixc, color='#d8d8d8')
 plt.xlim(0,100)
 
 
-legend = ["Compute","IX-cache", "PatternController", "Filter","Gather + Filter"]
-plt.legend(legend, fontsize=46, loc='best', ncol = 3, frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.96, 1.1))
+legend = ["Compute","IX-cache", "Walker", "Filter","Gather + Filter"]
+plt.legend(legend, fontsize=48, loc='best', ncol = 3, frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.91, 1.26))
 plt.tight_layout()
 plt.savefig('./Plots/pdfs/energy_analytics.pdf')
 # plt.show()

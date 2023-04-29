@@ -63,13 +63,13 @@ font = 24
 
 #BM = [ ".", "OPT", ".", "OPT", "."," OPT",".","OPT",".","OPT",".","OPT"]
 
-BM = [ "St", "++", " St", " ++", "  St","   ++","   St","  ++","    St","    ++","      St","        ++"]
+BM = [ "FX", "++", " FX", " ++", "  FX","   ++","   FX","  ++","    FX","    ++","      FX","        ++"]
 # percentage = [[87, 8, 5], [87, 8, 5], [87, 2, 10], [92, 7, 1],  [87, 2, 10] ]legend = ["Level 1", "Level 2", "Level 3", "Level 4","Level 5", "Level 6", "Level 7", "Level 8", "Level 9","Level 10"]
 
 # percentage = [[75, 25],[75, 25],[65,34], [96 , 4], [65,34] ]
 # percentage = [[66, 6, 4, 24 ], [66, 6, 4, 24 ], [ 66, 1.5, 6.5, 26 ], [89, 6.5 , 0.9, 3.6], [ 66, 1.5, 6.5, 26 ]]
 
-fig,ax=plt.subplots(figsize=(12, 6))
+fig,ax=plt.subplots(figsize=(12, 6.55))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -103,7 +103,7 @@ xticks_minor = [ 1.3,3.3,5.3,7.3,9.3]
 ax.set_xticks( xticks_minor, minor=True )
 
 ax.tick_params( axis='x', which='minor', direction='out', length=40, width =3 )
-plt.annotate("B+Tree",(0.0,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
+plt.annotate("Scan",(0.0,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
 plt.annotate("JOIN",(0.20,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )
 plt.annotate("RTree",(0.35,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font)
 plt.annotate("SpMM",(0.51,-0.20), xycoords='axes fraction', textcoords='offset points', va='top', size = font )

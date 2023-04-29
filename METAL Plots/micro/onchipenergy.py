@@ -43,10 +43,10 @@ font = 36
 # cache = ([ 30*9000/9000,25*9000/9000,42*9000/9000,16*9000/9000,57*9000/9000])
 # assoc16 = ([ 30*9000/9000,25*7000/9000,42*7000/9000, 16*7000/9000,57*7000/9000])#16way
 # xcache=([1.11*7000/9000,1.52*7/9,1.31*7/9,1.62*7/9,4.12*7/9])
-BM_name =	["B+Tree",	"JOIN"	,"RTree",	"SpMV",	"KVStore"]
-cache = (	[30*9000/9000,	16*9000/9000	,57*9000/9000,	42*9000/9000,	25*9000/9000])
-assoc16 = (	[30*9000/9000,16*7000/9000,	57*7000/9000,	42*7000/9000	,25*7000/9000])
-xcache=(	[1.11*7000/9000	,1.62*7/9,4.12*7/9,	1.31*7/9,	1.52*7/9])
+BM_name =	["Scan",	"JOIN"	,"RTree",	"SpMM",	"KVStore"]
+cache = (	[30*9000/9000,	16*9000/9000	,57*9000/9000,	51*9000/9000,	25*9000/9000])
+assoc16 = (	[30*9000/9000,16*7000/9000,	57*7000/9000,	51*7000/9000	,25*7000/9000])
+xcache=(	[1.11*7000/9000	,1.62*7/9,4.12*7/9,	1.46*7/9,	1.52*7/9])
 metal = ([1,1,1,1,1])
 for i in range(len((assoc16))):
     cache[i]=cache[i]/8
@@ -64,7 +64,7 @@ for i in range(len(assoc16)):
     # cache[i]=cache[i]/assoc16[i]
     
     
-nrm = [3.8, 3.1, 5.3, 2, 5]
+nrm = [3.8, 3.1, 5.3, 2.6, 5]
 
 X_AXIS = np.linspace(3,len(BM_name),len(BM_name))
 
@@ -99,8 +99,10 @@ plt.bar([i + 0.005 for i in X_AXIS], [xcache[i] for i,X in  enumerate(xcache)], 
 plt.bar([i + 0.108 for i in X_AXIS], [assoc16[i] for i,X in  enumerate(assoc16)], hatch = "", width  = 0.1, color = "#b1b1b1")
 # plt.axhline(y=1, color='r', linestyle='-')
 summ=0
+summ1=0
 for i in range(len(metal)):
     summ=summ+metal[i]
+    # summ1=summ1
 avg=summ/len(metal)
 imp=1/avg
 print(imp)
@@ -122,9 +124,9 @@ for i in bar1:
     plt.text(i.get_x() + i.get_width()/2.0, height, str(nrm[k]) + 'x', ha="center", va="bottom", fontsize=font1, color="red", weight="bold")
     k=k+1
 # plt.title('Runtime Comparision', size =font)
-legend = ["METAL","XCache","Ideal 16-way"]
+legend = ["METAL","X-Cache","Addr"]
 plt.legend(legend, fontsize=36, loc='best', ncol = 3, frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.95, 1.2))
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.93, 1.2))
 plt.ylabel('Norm. Cache Energy ', size = font, color='k')
 # plt.xlabel('Benchmark', size = font, color='k')
 

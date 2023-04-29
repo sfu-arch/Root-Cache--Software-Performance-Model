@@ -33,7 +33,7 @@ stream =[]
 metal=[]
 cache =[]
 
-font = 32
+font = 36
 
 # BM_name = ["B+Tree", "Hash","SpMM","JOIN", "RTree"]
 # cache = ([2.37, 1.82, 2.4, 8.21, 9.26])
@@ -41,7 +41,7 @@ font = 32
 # opt = ([3.84, 2.16, 4.43,7.16, 8.34])
 # prefetch = ([4.6, 1.92, 5.0, 6.63, 8.02])
 # metal_opt = (([6.08, 5.73, 6.21, 3.02, 5.27]))
-BM_name =	["B+Tree",	"JOIN",	"RTree"	,"SpMM",	"KVStore"]	
+BM_name =	["Scan",	"JOIN",	"RTree"	,"SpMM",	"KVStore"]	
 cache = (	[2.37	,8.21,	9.26,	2.4,	1.82]	)
 metal = ((	[6.08	,3.02	,5.27	,8.21,	5.73]	))
 opt = ([	3.84,	7.16	,8.34	,4.43	,2.16]	)
@@ -115,7 +115,7 @@ X_AXIS = np.linspace(1.5,len(BM_name),len(BM_name))
 print(sway_cache1)
 print(cache1)
 
-fig,ax=plt.subplots(figsize=(21.5, 6))
+fig,ax=plt.subplots(figsize=(21.5, 9.2))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
@@ -155,11 +155,11 @@ ax.set_xticklabels(BM_name)
 # plt.bar([i +0.535 for i in X_AXIS], [eway_cache[i] for i,X in  enumerate(eway_cache)], hatch = "--",edgecolor="black",width  = 0.1, color = "#d1d1d1")
 
 plt.bar([i -0.14 for i in X_AXIS], [metal[i] for i,X in  enumerate(metal)], width  = 0.13,  hatch = "//", color = "#e9e9e9",align='center')
-plt.bar([i +0.0 for i in X_AXIS], [fa_16[i] for i,X in  enumerate(fa_16)],width  = 0.13, color = "#b1b1b1",align='center')
+plt.bar([i +0.0 for i in X_AXIS], [fa_16[i] for i,X in  enumerate(fa_16)], hatch = "\\\\",width  = 0.13, color = "grey",align='center')
 # plt.bar([i +0.108 for i in X_AXIS], [fa_8[i] for i,X in  enumerate(fa_8)], hatch = "--", width  = 0.1, color = "black",align='center')
 # plt.bar([i + 0.21 for i in X_AXIS], [fa_4[i] for i,X in  enumerate(fa_4)], width  = 0.1, color = "#b1b1b1",align='center')
 plt.bar([i +0.139 for i in X_AXIS], [eway_32[i] for i,X in  enumerate(eway_32)], hatch = "--",edgecolor="black",width  = 0.13, color = "white",align='center',linewidth=2)
-plt.bar([i +0.275 for i in X_AXIS], [xcache[i] for i,X in  enumerate(xcache)], hatch = "\\\\",width  = 0.13, color = "grey",align='center')
+plt.bar([i +0.275 for i in X_AXIS], [xcache[i] for i,X in  enumerate(xcache)],width  = 0.13, color = "#b1b1b1",align='center')
 plt.bar([i +0.41 for i in X_AXIS], [opt[i] for i,X in  enumerate(opt)],width  = 0.13, color = "black",align='center')
 
 
@@ -183,19 +183,19 @@ plt.bar([i +0.41 for i in X_AXIS], [opt[i] for i,X in  enumerate(opt)],width  = 
 # avg=(summ)/(5)
 # print("avg is",avg)
 
-legend = ["METAL","FA-Addr(16x)","8-way(32x)","XCache","FA-OPT"]
-plt.legend(legend, fontsize=28,loc='best', frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.96, 1.2),ncol=7)
+legend = ["METAL","FA(16x)","8-way(32x)","XCache","FA-OPT"]
+plt.legend(legend, fontsize=32,loc='best', frameon=True,
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.97, 1.15),ncol=7)
 
 plt.ylabel('Walk (cycles)', size = font, color='k')
 # plt.ylim(0,10.0)
 
 
 
-plt.annotate("Gorgon",(0.17,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
-plt.annotate("Aurochs",   (0.42,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
-plt.annotate("Capstan",   (0.62,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
-plt.annotate("WidX",   (0.82,-0.2), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("Gorgon",(0.17,-0.1), xycoords='axes fraction', textcoords='offset points', va='top', size = font ,weight='bold')
+plt.annotate("Aurochs",   (0.42,-0.1), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("Capstan",   (0.62,-0.1), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
+plt.annotate("WidX",   (0.82,-0.1), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig
 plt.savefig('./Plots/pdfs/walklatency_timesplot.pdf')

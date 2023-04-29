@@ -25,7 +25,7 @@ ax = plt.axes()
 mpl.rc('font', family='sans-serif')
 matplotlib.style.use('ggplot')
 
-font = 28
+font = 30
 X_AXIS_name = []
 X_AXIS = np.linspace(0.1, 0.9, 9)
 import matplotlib.pyplot as plt
@@ -73,7 +73,7 @@ for i in range(len(r80_128)):
         r80_5121[i]=18-r80_512[i]
 
 
-fig, ax = plt.subplots(figsize=(14, 5))
+fig, ax = plt.subplots(figsize=(12, 6))
 ax.set_facecolor('w')
 ax.set_axisbelow(True)
 ax.spines['bottom'].set_color('k')
