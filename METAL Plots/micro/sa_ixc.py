@@ -15,6 +15,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.ticker as ticker
 from matplotlib.ticker import FuncFormatter
 import csv
+import matplotlib.ticker as mticker
 
 
 print(sys.path)
@@ -181,6 +182,11 @@ ax.set_ylabel('Norm. Latency', size=font, color='k')
 # ax2.tick_params(axis='y', which='minor', left=False)
 # plt.ylim(0, 3.0)
 ax2.set_ylim(0,1)
+y_step = 0.5
+ax.yaxis.set_major_locator(ticker.MultipleLocator(y_step))
+formatter = mticker.FuncFormatter(lambda x, _: '0' if x == 0 else f'{x:.1f}'.lstrip('0'))
+ax2.yaxis.set_major_formatter(formatter)
+
 # ax2.set_yticks[0].label1.set_visible(False)
 font=24
 plt.annotate("Gorgon", (0.15, -0.13), xycoords='axes fraction',
