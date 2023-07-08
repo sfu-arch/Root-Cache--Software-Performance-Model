@@ -94,12 +94,11 @@ ax.set_xticklabels(BM_name)
 
 
 # plt.bar([i +0.15 for i in X_AXIS], [prefetch[i] for i,X in  enumerate(prefetch)], hatch = "//",width  = 0.15, color = "#c5c5c5")
-
+bar5=plt.bar([i - 0.3 for i in X_AXIS], [metal_ix[i]for i, X in enumerate(metal_ix)], width=0.15, color="#c9c9c9")
 bar1 = plt.bar([i -0.15 for i in X_AXIS], [metal[i]for i, X in enumerate(metal)], width=0.15,  hatch="//", color="#e9e9e9")
 bar4=plt.bar([i - 0.0 for i in X_AXIS], [cache[i] for i, X in enumerate(cache)], hatch="\\\\", width=0.15, color="grey")
 bar3=plt.bar([i + 0.15 for i in X_AXIS], [xcache[i]for i, X in enumerate(xcache)], width=0.15, color="#b1b1b1")
 bar2=plt.bar([i + 0.3 for i in X_AXIS], [opt[i]for i, X in enumerate(opt)], width=0.15, color="black")
-bar2=plt.bar([i - 0.3 for i in X_AXIS], [metal_ix[i]for i, X in enumerate(opt)], width=0.15, color="#c9c9c9")
 
 # plt.bar([i + 0.32 for i in X_AXIS], [sway_cache[i]for i, X in enumerate(sway_cache)], width=0.1, hatch="\\\\", color="#c1c1c1")
 # plt.bar([i + 0.43 for i in X_AXIS], [eway_cache[i]for i, X in enumerate(eway_cache)], width=0.1, hatch="--",color="#d1d1d1")
@@ -114,11 +113,17 @@ bar2=plt.bar([i - 0.3 for i in X_AXIS], [metal_ix[i]for i, X in enumerate(opt)],
 #     height = i.get_height()
 #     plt.text(i.get_x() + i.get_width()/2.0, height, str(nrm[k]) + 'x', ha="center", va="bottom", fontsize=24, color="red", weight="bold")
 #     k=k+1
+nrmmetalix=[43,52,62,24,68]
 nrmmetal=[20,30,44,16.7,50]
 nrmxcache=[73,71,91,43,87]
 nrmopt=[92,86,94,87,92]
 nrmaddr=[100,100,100,100,100]
 font1=32
+k=0
+for i in bar5:
+    height = i.get_height()
+    plt.text(i.get_x() + i.get_width()/2.0, height, str(nrmmetalix[k]), ha="center", va="bottom", fontsize=font1, color="red", weight="bold",rotation=90)
+    k=k+1
 k=0
 for i in bar1:
     height = i.get_height()
@@ -139,9 +144,9 @@ for i in bar4:
     height = i.get_height()
     plt.text(i.get_x() + i.get_width()/2.0, height, str(nrmaddr[k]), ha="center", va="bottom", fontsize=font1, color="red", weight="bold",rotation=90)
     k=k+1
-legend = ["METAL", "FA","X-Cache", "FA-OPT", "METAL-IX",  "FA-Addr(16x)", "Ideal 16-way(32x)"]
+legend = ["METAL-IX", "METAL", "FA","X-Cache", "FA-OPT",  "FA-Addr(16x)", "Ideal 16-way(32x)"]
 plt.legend(legend, fontsize=30, loc='best', frameon=True,
-           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.95, 1.23), ncol=6)
+           facecolor='w', edgecolor='k', fancybox=False, bbox_to_anchor=(0.95, 1.45), ncol=3)
 
 plt.ylabel('Miss rate', size=font, color='k')
 plt.ylim(0, 1.0)
@@ -155,5 +160,5 @@ plt.annotate("Capstan",   (0.61,-0.1), xycoords='axes fraction', textcoords='off
 plt.annotate("WidX",   (0.82,-0.1), xycoords='axes fraction', textcoords='offset points', va='top', size = font,weight='bold')
 plt.tight_layout()
 # Uncomment to savefig
-plt.savefig('./Plots/pdfs/missrate2.pdf')
+plt.savefig('pdfs/missrate2.pdf')
 # plt.show()
